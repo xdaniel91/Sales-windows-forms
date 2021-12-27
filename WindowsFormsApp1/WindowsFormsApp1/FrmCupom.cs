@@ -14,8 +14,37 @@ namespace WindowsFormsApp1
     {
         public FrmCupom()
         {
-            lstCupom = Utils.ListBoxPreenchido;
             InitializeComponent();
+            Adicionar();
+            
+        }
+
+        void Adicionar()
+        {
+            foreach (var item in DataBase.lista_compras)
+            {
+                lstCupom.Items.Add(Escrever(item));
+            }
+        }
+
+        string Escrever(OrderItems item)
+        {
+            if (DataBase.lista_compras != null)
+            {
+                foreach (var i in DataBase.lista_compras)
+                {
+                    return $"{i.OrderProduto.Nome}  {i.Quantity}   {i.TotalValue}";
+                }
+            }
+            else
+            {
+                return "";
+            }
+            return "caiu aqui";
+           
+
+           
+           
         }
     }
 }

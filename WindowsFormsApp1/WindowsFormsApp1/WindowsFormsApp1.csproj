@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Compra.cs" />
-    <Compile Include="CompraItem.cs" />
-    <Compile Include="DataBase.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Controls\txtInt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\txtMoeda.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCupom.cs">
       <SubType>Form</SubType>
@@ -61,24 +65,32 @@
     <Compile Include="FrmCupom.Designer.cs">
       <DependentUpon>FrmCupom.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListaCompras.cs">
+    <Compile Include="FrmOrder.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ListaCompras.Designer.cs">
-      <DependentUpon>ListaCompras.cs</DependentUpon>
+    <Compile Include="FrmOrder.Designer.cs">
+      <DependentUpon>FrmOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produto.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Order.cs" />
+    <Compile Include="Classes\OrderItems.cs" />
+    <Compile Include="Classes\Produto.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DataBase\DataBase.cs" />
+    <Compile Include="FrmRegisterProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmRegisterProduct.Designer.cs">
+      <DependentUpon>FrmRegisterProduct.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCupom.resx">
       <DependentUpon>FrmCupom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListaCompras.resx">
-      <DependentUpon>ListaCompras.cs</DependentUpon>
+    <EmbeddedResource Include="FrmOrder.resx">
+      <DependentUpon>FrmOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +101,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmRegisterProduct.resx">
+      <DependentUpon>FrmRegisterProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
