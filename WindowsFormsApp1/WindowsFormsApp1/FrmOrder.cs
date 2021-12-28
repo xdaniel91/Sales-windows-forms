@@ -5,6 +5,7 @@ namespace WindowsFormsApp1
 {
     public partial class FrmOrder : UserControl
     {
+    
         public FrmOrder()
         {
             InitializeComponent();
@@ -40,7 +41,6 @@ namespace WindowsFormsApp1
         {
             var frm = new FrmCupom();
             frm.Show();
-
         }
 
         public string EscreverLinhasCompra(OrderItems item)
@@ -93,13 +93,15 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    Produto p = DataBase.lista_produtos[lst_produtos.SelectedIndex];
-                    var quantity = int.Parse(txtQuantity.Text);
-                    var item = new OrderItems(p, quantity);
-                    var order = new Order();
-                    order.AddItem(item);
-                    DataBase.lista_order.Add(order);
-                    DataBase.lista_compras = order.Items;
+                    Produto p = DataBase.lista_produtos[lst_produtos.SelectedIndex]; // produto selecionado na lst
+                    var quantity = int.Parse(txtQuantity.Text); // define qtd
+                    var item = new OrderItems(p, quantity); // criar o item
+                    var order = new Order(); // criar a order
+                    order.AddItem(item);     // adiciona o item à order
+                   
+                    DataBase.lista_compras = order.Items; // atribui data base a lista de itens 
+
+                    orderAtual = order;
 
                     RefreshScreen();
                     lst_compras.Items.Add(EscreverLinhasCompra(item));
@@ -107,23 +109,42 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show($"Não foi possível adicionar o produto. {ex.Message}");
                 }
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         void RemoveItem(Order order)
         {
-            
+            if (lst_compras.SelectedIndex == - 1)
+            {
+                return;
+            }
+            else
+            {
+                try
+                {
+                    var item = DataBase.lista_compras[lst_compras.SelectedIndex];
+                    order.RemoveItem(item);
+                    lst_compras.Items.Remove(item);
+                    RefreshScreen2();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+
         }
+
+
 
         void RefreshScreen()
         {
@@ -131,6 +152,15 @@ namespace WindowsFormsApp1
             foreach (var item in DataBase.lista_produtos)
             {
                 lst_produtos.Items.Add(EscreverLinhasProdutos(item));
+            }
+        }
+
+        void RefreshScreen2()
+        {
+            lst_compras.Items.Clear();
+            foreach (var item in DataBase.lista_compras)
+            {
+                lst_produtos.Items.Add(EscreverLinhasCompra(item));
             }
         }
     }

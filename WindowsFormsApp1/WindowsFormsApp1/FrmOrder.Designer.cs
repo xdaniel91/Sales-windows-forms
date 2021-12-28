@@ -62,8 +62,8 @@ namespace WindowsFormsApp1
             this.lst_compras.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lst_compras.BackColor = System.Drawing.Color.Gray;
-            this.lst_compras.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lst_compras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lst_compras.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lst_compras.ForeColor = System.Drawing.Color.Black;
             this.lst_compras.FormattingEnabled = true;
             this.lst_compras.ItemHeight = 18;
             this.lst_compras.Location = new System.Drawing.Point(302, 3);

@@ -23,3 +23,16 @@ C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrder.resources
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmRegisterProduct.resources
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmMain.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmCupom.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrder.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmRegisterProduct.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

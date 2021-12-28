@@ -8,11 +8,12 @@ namespace WindowsFormsApp1
 {
     public class Produto
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
         public double Preco { get; set; }
         public int QuantidadeDisponivel { get; set; }
 
-        public Produto(string nome, double preco, int qtdeDisponivel)
+        public Produto(string id, string nome, double preco, int qtdeDisponivel)
         {
             Nome = nome;
             Preco = preco;

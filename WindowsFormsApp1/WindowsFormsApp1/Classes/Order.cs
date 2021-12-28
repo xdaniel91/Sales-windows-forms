@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
             Items.Add(item);
 
         }
-        public void RemoveItem(OrderItems item, int quantity)
+        public void RemoveItem(OrderItems item)
         {
             Items.Remove(item);
             

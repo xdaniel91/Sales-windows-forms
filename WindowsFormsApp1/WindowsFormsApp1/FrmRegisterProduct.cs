@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
             lblName.Text = "Nome";
             lblPrice.Text = "Preço";
             lblQuantity.Text = "Quantidade";
+            lblId.Text = "Id";
             btnRegister.Text = "Registrar";
         }
 
@@ -25,12 +26,13 @@ namespace WindowsFormsApp1
             {
                 try
                 {           
-                    var p = new Produto(txtName.Text, Convert.ToDouble(txtMoeda.Text.Replace(".",",")), Convert.ToInt32(txtQuantity.Text));
+                    var p = new Produto(txtId.Text ,txtName.Text, Convert.ToDouble(txtMoeda.Text.Replace(".",",")), Convert.ToInt32(txtQuantity.Text));
                     DataBase.lista_produtos.Add(p);
                     MessageBox.Show("Produto adicionado!", "Time Share Soluções");
                     txtMoeda.Text = "";
                     txtName.Text = "";
                     txtQuantity.Text = "";
+                    txtId.Text = "";                
                 }
                 catch(Exception ex)
                 {
