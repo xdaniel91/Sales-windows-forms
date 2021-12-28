@@ -1,0 +1,6 @@
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.pdb

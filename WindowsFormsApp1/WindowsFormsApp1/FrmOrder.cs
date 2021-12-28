@@ -101,7 +101,7 @@ namespace WindowsFormsApp1
                    
                     DataBase.lista_compras = order.Items; // atribui data base a lista de itens 
 
-                    orderAtual = order;
+                    
 
                     RefreshScreen();
                     lst_compras.Items.Add(EscreverLinhasCompra(item));

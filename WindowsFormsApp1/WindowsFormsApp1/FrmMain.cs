@@ -74,6 +74,17 @@ namespace WindowsFormsApp1
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var frm = new FrmUserRegister();
+            var tb = new TabPage();
+            tb.Name = "Registro de usuários";
+            tb.Text = "Registro de usuários";
+            tb.Controls.Add(frm);
+            tbc_app.Controls.Add(tb);
+            tbc_app.SelectedTab = tb;
+        }
     }
 
 

@@ -37,6 +37,7 @@ namespace WindowsFormsApp1
             this.btnFechar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +70,7 @@ namespace WindowsFormsApp1
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.BtnRegisterProduct);
             this.panel1.Controls.Add(this.btnListaCompras);
             this.panel1.Location = new System.Drawing.Point(1, 57);
@@ -128,6 +130,18 @@ namespace WindowsFormsApp1
             this.label1.Text = "TimeShare Soluções";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Turquoise;
+            this.button1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 101);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 43);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button2";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +170,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
