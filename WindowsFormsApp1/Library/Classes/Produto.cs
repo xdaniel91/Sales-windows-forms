@@ -8,39 +8,43 @@ namespace WindowsFormsApp1
 {
     public class Produto
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public double Preco { get; set; }
-        public int QuantidadeDisponivel { get; set; }
-
-        public Produto(string id, string nome, double preco, int qtdeDisponivel)
+        public class Unit
         {
-            Nome = nome;
-            Preco = preco;
-            QuantidadeDisponivel = qtdeDisponivel;
-        }
+            public int Id { get; set; }
+            public string Nome { get; set; }
+            public double Preco { get; set; }
+            public int QuantidadeDisponivel { get; set; }
 
-        public void AddQtdeDisponivel(int qtde)
-        {
-            if (qtde <= 0)
+            public Unit(string id, string nome, double preco, int qtdeDisponivel)
             {
-                throw new Exception("Digite um número válido");
+                Nome = nome;
+                Preco = preco;
+                QuantidadeDisponivel = qtdeDisponivel;
             }
-            QuantidadeDisponivel += qtde;
-        }
 
-        public void RemoveQtdeDisponivel(int qtde)
-        {
-            if (qtde > QuantidadeDisponivel)
+            public void AddQtdeDisponivel(int qtde)
             {
-                throw new Exception("Quantidade disponível é insuficiente");
+                if (qtde <= 0)
+                {
+                    throw new Exception("Digite um número válido");
+                }
+                QuantidadeDisponivel += qtde;
             }
-            QuantidadeDisponivel = QuantidadeDisponivel - qtde;
+
+            public void RemoveQtdeDisponivel(int qtde)
+            {
+                if (qtde > QuantidadeDisponivel)
+                {
+                    throw new Exception("Quantidade disponível é insuficiente");
+                }
+                QuantidadeDisponivel = QuantidadeDisponivel - qtde;
+            }
+
+            public override string ToString()
+            {
+                return Nome;
+            }
         }
 
-        public override string ToString()
-        {
-            return Nome;
-        }
     }
 }

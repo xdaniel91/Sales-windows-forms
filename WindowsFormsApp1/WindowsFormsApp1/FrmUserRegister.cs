@@ -24,7 +24,6 @@ namespace WindowsFormsApp1
             lblName.Text = "Nome";
             lblRua.Text = "Rua";
             lblUF.Text = "UF";
-
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

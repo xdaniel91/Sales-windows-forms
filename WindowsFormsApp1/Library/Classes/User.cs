@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -183,6 +184,154 @@ namespace Library.Classes
                     throw new Exception(F.Message);
                 }
             }
+            #endregion
+
+            #region "CRUD Fichario SQL SERVER Relacional"
+
+            public void IncludeSQL()
+            {
+                try
+                {
+                    string SQL = this.ToInsert();
+                    var db = new SQLServerClass();
+                    db.SQLCommand(SQL);
+                    db.CloseConnection();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Inclusão não permitida. {ex.Message}");
+                }
+            }
+
+            public Unit SearchSQL(string Id)
+            {
+                try
+                {
+                    string SQL = $"SELECT * FROM [TB_Cliente] WHERE Id = '{Id}'";
+                    var db = new SQLServerClass();
+                    var dt = db.SQLQuery(SQL);
+                    if (dt.Rows.Count == 0)
+                    {
+                        db.CloseConnection();
+                        throw new Exception($"Id não existe, conexão fechada.");
+                    }
+                    else
+                    {
+                        Unit unit = this.DataRowToUnit(dt.Rows[0]);
+                        return unit;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Erro ao buscar o conteúdo do Id {Id} || {ex.Message}");
+                }
+            }
+
+            public List<List<string>> SearchAllSQL()
+            {
+                List<List<string>> listaBusca = new List<List<string>>();
+                try
+                {
+                    var SQL = $"SELECT * FROM TB_Cliente";
+                    var db = new SQLServerClass();
+                    var dt = db.SQLQuery(SQL);
+
+                    for (int i = 0; i <= dt.Rows.Count - 1; i++)
+                    {
+                        listaBusca.Add(new List<string> { dt.Rows[i]["Id"].ToString(), dt.Rows[i]["Nome"].ToString() });
+                    }
+                    return listaBusca;
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Conexão com banco de dados falhou! {ex.Message}");
+                }
+            }
+
+            public void ChangeSQL()
+            {
+                try
+                {
+                    var SQL = $@"SELECT * FROM [TB_Cliente] WHERE Id = '{Id}'";
+                    var db = new SQLServerClass();
+                    var dt = db.SQLQuery(SQL);
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        db.CloseConnection();
+                        throw new Exception($"Não foi possível buscar o id {Id}");
+                    }
+                    else
+                    {
+                        SQL = this.ToUpdade(this.Id);
+                        db.SQLCommand(SQL);
+                        db.CloseConnection();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception($"Erro ao alterar os dados. {ex.Message}");
+                }
+            }
+
+            public void DeleteSQL()
+            {
+                try
+                {
+                    var SQL = $@"SELECT * FROM [TB_Cliente] WHERE Id = '{this.Id}'";
+                    var db = new SQLServerClass();
+                    var dt = db.SQLQuery(SQL);
+                    if (dt.Rows.Count == 0)
+                    {
+                        db.CloseConnection();
+                        throw new Exception($"Não foi possível buscar o id {this.Id}");
+                    }
+                    else
+                    {
+                        SQL = $"DELETE * FROM [TB_Cliente] WHERE Id = '{this.Id}'";
+                        db.SQLCommand(SQL);
+                        db.CloseConnection();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception($"Erro ao buscar o conteúdo do Id {this.Id} || {ex.Message}");
+                }
+            }
+            #region "Funções Axiliares"
+
+            public string ToInsert()
+            {
+
+                string SQL;
+                SQL =
+                    $@"INSERT INTO TO TB_Products
+                    (Id,
+                    Name,
+                    AvaliableQuantity.
+                    Price)                   
+                    VALUES";
+                SQL += $@"'{this.Id}'";
+                                         
+                    ;
+                return SQL;
+            }
+
+            public string ToUpdade(string id)
+            {
+                var SQL = "";
+                return SQL;
+            }
+
+            public Unit DataRowToUnit(DataRow dr)
+            {
+                return Unit;
+            }
+
+            #endregion
             #endregion
         }
 
