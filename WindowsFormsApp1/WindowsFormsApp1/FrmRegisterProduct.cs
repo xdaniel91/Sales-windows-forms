@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
             lblPrice.Text = "Preço";
             lblQuantity.Text = "Quantidade";
             btnRegister.Text = "Registrar";
+            lblId.Text = "Id";
         }
 
         private void button1_Click(object sender, EventArgs e)

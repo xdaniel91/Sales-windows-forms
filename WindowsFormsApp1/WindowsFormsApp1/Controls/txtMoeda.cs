@@ -19,7 +19,7 @@ namespace WindowsFormsApp1.Controls
             catch
             {
                 this.Text = "";
-                MessageBox.Show("dentro do txt - Valor inválido");
+                MessageBox.Show("Valor inválido");
 
             }
         }

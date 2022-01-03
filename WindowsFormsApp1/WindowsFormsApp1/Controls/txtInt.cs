@@ -1,8 +1,11 @@
 ﻿using System.Windows.Forms;
+using System;
+using System.Drawing;
+
 
 namespace WindowsFormsApp1.Controls
 {
-    class txtInt : TextBox
+    public class txtInt : TextBox
     {
         protected override void OnKeyDown(KeyEventArgs e)
         {

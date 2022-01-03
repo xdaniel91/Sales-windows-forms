@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.txtId = new WindowsFormsApp1.Controls.txtInt();
             this.txtQuantity = new WindowsFormsApp1.Controls.txtInt();
             this.txtMoeda = new WindowsFormsApp1.Controls.txtMoeda();
@@ -49,7 +49,7 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblId);
             this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.txtQuantity);
             this.panel1.Controls.Add(this.txtMoeda);
@@ -63,16 +63,16 @@ namespace WindowsFormsApp1
             this.panel1.Size = new System.Drawing.Size(620, 458);
             this.panel1.TabIndex = 10;
             // 
-            // label1
+            // lblId
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label1.Location = new System.Drawing.Point(13, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 24);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "label1";
+            this.lblId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.lblId.Location = new System.Drawing.Point(13, 67);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(113, 24);
+            this.lblId.TabIndex = 14;
+            this.lblId.Text = "label1";
             // 
             // txtId
             // 
@@ -174,7 +174,7 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblId;
         private Controls.txtInt txtId;
         private Controls.txtInt txtQuantity;
         private Controls.txtMoeda txtMoeda;

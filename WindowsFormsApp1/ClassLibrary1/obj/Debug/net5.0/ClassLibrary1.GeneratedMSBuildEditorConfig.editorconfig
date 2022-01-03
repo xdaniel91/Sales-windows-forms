@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = ClassLibrary1
-build_property.ProjectDir = C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\ClassLibrary1\
+build_property.ProjectDir = C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\ClassLibrary1\

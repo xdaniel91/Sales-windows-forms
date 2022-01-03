@@ -33,11 +33,11 @@ namespace WindowsFormsApp1
             this.btnListaCompras = new System.Windows.Forms.Button();
             this.tbc_app = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUserRegister = new System.Windows.Forms.Button();
             this.BtnRegisterProduct = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,10 +59,10 @@ namespace WindowsFormsApp1
             this.tbc_app.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbc_app.Location = new System.Drawing.Point(87, 53);
+            this.tbc_app.Location = new System.Drawing.Point(88, 53);
             this.tbc_app.Name = "tbc_app";
             this.tbc_app.SelectedIndex = 0;
-            this.tbc_app.Size = new System.Drawing.Size(709, 478);
+            this.tbc_app.Size = new System.Drawing.Size(1297, 756);
             this.tbc_app.TabIndex = 2;
             // 
             // panel1
@@ -70,13 +70,25 @@ namespace WindowsFormsApp1
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnUserRegister);
             this.panel1.Controls.Add(this.BtnRegisterProduct);
             this.panel1.Controls.Add(this.btnListaCompras);
             this.panel1.Location = new System.Drawing.Point(1, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(82, 474);
+            this.panel1.Size = new System.Drawing.Size(82, 752);
             this.panel1.TabIndex = 3;
+            // 
+            // btnUserRegister
+            // 
+            this.btnUserRegister.BackColor = System.Drawing.Color.Turquoise;
+            this.btnUserRegister.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserRegister.Location = new System.Drawing.Point(0, 101);
+            this.btnUserRegister.Name = "btnUserRegister";
+            this.btnUserRegister.Size = new System.Drawing.Size(81, 43);
+            this.btnUserRegister.TabIndex = 3;
+            this.btnUserRegister.Text = "button2";
+            this.btnUserRegister.UseVisualStyleBackColor = false;
+            this.btnUserRegister.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // BtnRegisterProduct
             // 
@@ -94,7 +106,7 @@ namespace WindowsFormsApp1
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
-            this.btnFechar.Location = new System.Drawing.Point(764, 26);
+            this.btnFechar.Location = new System.Drawing.Point(1352, 26);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(32, 29);
             this.btnFechar.TabIndex = 3;
@@ -125,29 +137,17 @@ namespace WindowsFormsApp1
             this.label1.ForeColor = System.Drawing.Color.Navy;
             this.label1.Location = new System.Drawing.Point(87, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(709, 56);
+            this.label1.Size = new System.Drawing.Size(1297, 56);
             this.label1.TabIndex = 4;
             this.label1.Text = "TimeShare Soluções";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Turquoise;
-            this.button1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 43);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button2";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(796, 533);
+            this.ClientSize = new System.Drawing.Size(1384, 811);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -170,7 +170,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUserRegister;
     }
 }
 

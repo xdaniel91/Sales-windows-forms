@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Library.Classes;
+using System;
 using System.Windows.Forms;
+using WindowsFormsApp1.Controls;
 
 namespace WindowsFormsApp1
 {
     public partial class FrmOrder : UserControl
     {
-    
+        User.Unit Customer = null;
+
+
         public FrmOrder()
         {
             InitializeComponent();
@@ -16,7 +20,9 @@ namespace WindowsFormsApp1
             btnExcluir.Text = "Excluir";
             EscreverProdutosNaLst();
             lblTotal.Text = $"{0:c}";
-
+            lst_produtos.Enabled = false;
+            btnFinzaliar.Enabled = false;
+            btnQuantidade.Enabled = false;
         }
 
         public void EscreverProdutosNaLst()
@@ -27,20 +33,67 @@ namespace WindowsFormsApp1
             }
         }
 
+        //public void EscreverUsers()
+        //{
+        //    foreach (var item in DataBase.lista_users)
+        //    {
+        //        lst_cliente.Items.Add(item);
+        //    }
+        //}
+
+        //public void AddUser()
+        //{
+        //    if (lst_cliente.SelectedIndex == -1)
+        //    {
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
+        //            User.Unit user = DataBase.lista_users[lst_cliente.SelectedIndex]; // usuario selecionado na lst
+        //            Customer = user;
+        //            if (user != null)
+        //            {
+        //                lst_produtos.Enabled = true;
+        //                btnFinzaliar.Enabled = true;
+        //                btnQuantidade.Enabled = true;
+        //            }
+
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"{ex.Message}");
+        //        }
+        //    }
+        //}
+
         private void btnIniciarCompra_Click(object sender, EventArgs e) // botão adicionar
         {
             AdicionarItemSelecionado();
         }
 
-        private void lst_produtos_DoubleClick(object sender, EventArgs e) // adiconar item a compra double click
+        private void lst_produtos_DoubleClick(object sender, EventArgs e) // add w/ double click
         {
             AdicionarItemSelecionado();
         }
 
         private void btnFinzaliar_Click(object sender, EventArgs e)
         {
-            var frm = new FrmCupom();
-            frm.Show();
+            var frm = new FrmFinalize();
+            frm.ShowDialog();
+            frm.LabelCustomer.Text = Customer.Nome;
+            double total = 0.0;
+           foreach (var item in DataBase.lista_itens)
+            {
+                total += item.TotalValue;
+            }
+            frm.LabelTotal.Text = total.ToString();
+            foreach (var item in DataBase.lista_itens)
+            {
+                frm.lst_principal.Items.Add(EscreverLinhasCompra(item));
+            }
+
         }
 
         public string EscreverLinhasCompra(OrderItems item)
@@ -96,52 +149,26 @@ namespace WindowsFormsApp1
                     Produto p = DataBase.lista_produtos[lst_produtos.SelectedIndex]; // produto selecionado na lst
                     var quantity = int.Parse(txtQuantity.Text); // define qtd
                     var item = new OrderItems(p, quantity); // criar o item
-                    var order = new Order(); // criar a order
-                    order.AddItem(item);     // adiciona o item à order
-                   
-                    DataBase.lista_compras = order.Items; // atribui data base a lista de itens 
+                    if (Customer != null)
+                    {
+                        var order = new Order(Customer); // criar a order 
+                        order.AddItem(item);     // adiciona o item à order
 
-                    
+                        DataBase.lista_itens = order.Items; // atribui data base a lista de itens 
 
-                    RefreshScreen();
-                    lst_compras.Items.Add(EscreverLinhasCompra(item));
-
+                        RefreshScreen();
+                        lst_compras.Items.Add(EscreverLinhasCompra(item));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cliente nulo", "TimeShare Soluções");
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Não foi possível adicionar o produto. {ex.Message}");
                 }
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        void RemoveItem(Order order)
-        {
-            if (lst_compras.SelectedIndex == - 1)
-            {
-                return;
-            }
-            else
-            {
-                try
-                {
-                    var item = DataBase.lista_compras[lst_compras.SelectedIndex];
-                    order.RemoveItem(item);
-                    lst_compras.Items.Remove(item);
-                    RefreshScreen2();
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.Message);
-                }
-
-            }
-
         }
 
 
@@ -155,16 +182,15 @@ namespace WindowsFormsApp1
             }
         }
 
-        void RefreshScreen2()
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            lst_compras.Items.Clear();
-            foreach (var item in DataBase.lista_compras)
-            {
-                lst_produtos.Items.Add(EscreverLinhasCompra(item));
-            }
+            var frm = new FrmChooseUser();
+            frm.ShowDialog();
+            Customer = frm.CustomerChosen;
+            lst_produtos.Enabled = true;
+            btnFinzaliar.Enabled = true;
+            btnQuantidade.Enabled = true;
+
         }
     }
 }
-
-
-

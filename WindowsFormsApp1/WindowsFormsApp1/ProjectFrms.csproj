@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,17 +54,23 @@
     <Compile Include="Controls\txtMoeda.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FrmChooseUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChooseUser.Designer.cs">
+      <DependentUpon>FrmChooseUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFinalize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinalize.Designer.cs">
+      <DependentUpon>FrmFinalize.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCupom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCupom.Designer.cs">
-      <DependentUpon>FrmCupom.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmOrder.cs">
       <SubType>UserControl</SubType>
@@ -85,11 +92,14 @@
     <Compile Include="FrmUserRegister.Designer.cs">
       <DependentUpon>FrmUserRegister.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmChooseUser.resx">
+      <DependentUpon>FrmChooseUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinalize.resx">
+      <DependentUpon>FrmFinalize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCupom.resx">
-      <DependentUpon>FrmCupom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.cs</DependentUpon>

@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             btnListaCompras.Text = "Compras";
             BtnRegisterProduct.Text = "Registrar produto";
+            btnUserRegister.Text = "Registrar usuário";
             panel1.Enabled = false;
             panel1.Visible = false;
         }

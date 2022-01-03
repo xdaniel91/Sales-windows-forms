@@ -18,6 +18,11 @@ namespace WindowsFormsApp1
             Quantity = quantity;
             prodcut.RemoveQtdeDisponivel(quantity);
         }
+
+        public override string ToString()
+        {
+            return $"{OrderProduto.Nome} // {Quantity} // {TotalValue}";
+        }
     }
 
 
