@@ -1,10 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class FrmRegisterProduct : UserControl
     {
+        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioProducts";
+
         public FrmRegisterProduct()
         {
             InitializeComponent();
@@ -18,6 +21,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (String.IsNullOrEmpty(txtMoeda.Text) || String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtQuantity.Text) || int.Parse(txtQuantity.Text) <= 0)
             {
                 MessageBox.Show("Insira valores válidos");
@@ -25,20 +29,35 @@ namespace WindowsFormsApp1
             else
             {
                 try
-                {           
-                    var p = new Produto(txtId.Text ,txtName.Text, Convert.ToDouble(txtMoeda.Text.Replace(".",",")), Convert.ToInt32(txtQuantity.Text));
-                    DataBase.lista_produtos.Add(p);
-                    MessageBox.Show("Produto adicionado!", "Time Share Soluções");
+                {
+                    var product = ReadFrm();
+                    product.ValidaClasse();
+                    product.IncluirFichario(Connection);
+
+                    DataBase.lista_produtos.Add(product);
+                    MessageBox.Show("Produto adicionado!", "TimeShare Soluções");
                     txtMoeda.Text = "";
                     txtName.Text = "";
                     txtQuantity.Text = "";
-                    txtId.Text = "";                
+                    txtId.Text = "";
                 }
-                catch(Exception ex)
+                catch (ValidationException vex)
                 {
-                    MessageBox.Show($"Não foi possível adicionar o produto! {ex.Message}", "Time Share Soluções");
+
+                    MessageBox.Show($"{vex.Message}", "TimeShare Soluções");
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Não foi possível adicionar o produto! {ex.Message}", "TimeShare Soluções");
                 }
             }
+        }
+
+        Product ReadFrm()
+        {
+                var p = new Product(txtId.Text, txtName.Text, Convert.ToDouble(txtMoeda.Text.Replace(".", ",")), Convert.ToInt32(txtQuantity.Text));
+                return p;                    
         }
 
     }

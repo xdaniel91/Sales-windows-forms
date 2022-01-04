@@ -12,4 +12,4 @@ C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Librar
 C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.dll
 C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.pdb
-C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete

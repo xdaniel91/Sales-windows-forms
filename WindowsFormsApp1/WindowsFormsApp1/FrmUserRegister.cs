@@ -16,28 +16,33 @@ namespace WindowsFormsApp1
 {
     public partial class FrmUserRegister : UserControl
     {
+        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
+       
         public FrmUserRegister()
         {
             InitializeComponent();
             lblCpf.Text = "CPF";
             lblId.Text = "ID";
             lblName.Text = "Nome";
-            lblData.Text = "Data de nascimento";
+            lblData.Text = "Nascimento";
+            btnRegister.Text = "Confirmar";
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                var user = new User.Unit();
-                user = AssignInfos();
+                var user = ReadFrm();
                 user.ValidaClasse();
                 user.ValidaComplemento();
+                user.IncluirFichario(Connection);
                 DataBase.lista_users.Add(user);
-                MessageBox.Show("Usuário incluido com sucesso!");
+
+                MessageBox.Show("Usuário incluido com sucesso!", "TimeShare Soluções");
             }
             catch (ValidationException vex)
             {
+
                 MessageBox.Show($"Não foi possível registrar o usuário, verifique os dados! {vex.Message}", "TimeShare Soluções");
             }
             catch (Exception ex)
@@ -45,9 +50,9 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Inclusão não permitida. {ex.Message}", "Timeshare Soluções");
             }
         }
-        User.Unit AssignInfos()
+        Customer ReadFrm()
         {
-            var user = new User.Unit();
+            var user = new Customer();
             try
             {
                 user.Nome = txtNome.Text;
@@ -60,9 +65,33 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro na conversão de txt para propiedades. {ex.Message}", "TimeShare Soluções");
+                MessageBox.Show(ex.Message);
             }
             return user;
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var user = ReadFrm();
+                user.ValidaClasse();
+                user.ValidaComplemento();
+                user.IncluirFichario(Connection);
+                DataBase.lista_users.Add(user);
+
+                MessageBox.Show("Usuário incluido com sucesso!", "TimeShare Soluções");
+            }
+            catch (ValidationException vex)
+            {
+
+                MessageBox.Show($"Não foi possível registrar o usuário, verifique os dados! {vex.Message}", "TimeShare Soluções");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Inclusão não permitida. {ex.Message}", "Timeshare Soluções");
+            }
+        }
+
     }
 }

@@ -55,6 +55,7 @@ namespace WindowsFormsApp1
             this.btnSelect.TabIndex = 11;
             this.btnSelect.Text = "Selecionar Cliente";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // FrmChooseUser
             // 

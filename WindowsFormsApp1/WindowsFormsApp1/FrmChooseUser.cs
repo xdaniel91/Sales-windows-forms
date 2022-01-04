@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class FrmChooseUser : Form
     {
-        public User.Unit CustomerChosen{ get; set; }
+        public Customer CustomerChosen{ get; set; }
 
         public FrmChooseUser()
         {
@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    User.Unit user = DataBase.lista_users[lst_cliente.SelectedIndex]; // usuario selecionado na lst
+                    Customer user = DataBase.lista_users[lst_cliente.SelectedIndex]; // usuario selecionado na lst
                     if (user != null)
                     {
                         CustomerChosen = user;
@@ -48,14 +48,6 @@ namespace WindowsFormsApp1
                     {
                         throw new Exception("Cliente escolhido = nulo");
                     }
-
-                    //if (user != null)
-                    //{
-                    //    lst_produtos.Enabled = true;
-                    //    btnFinzaliar.Enabled = true;
-                    //    btnQuantidade.Enabled = true;
-                    //}
-
                 }
                 catch (Exception ex)
                 {
@@ -68,6 +60,14 @@ namespace WindowsFormsApp1
         {
             AddUser();
             this.Close();
+            DialogResult = DialogResult.OK;
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            AddUser();
+            this.Close();
+            DialogResult = DialogResult.OK;
         }
     }
 }

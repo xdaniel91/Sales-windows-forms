@@ -1,5 +1,14 @@
 ﻿using Library.Classes;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controls;
 
@@ -7,8 +16,8 @@ namespace WindowsFormsApp1
 {
     public partial class FrmOrder : UserControl
     {
-        User.Unit Customer = null;
-
+        Customer CurrentCustomer = null;
+        Order CurrentOrder = null;
 
         public FrmOrder()
         {
@@ -18,18 +27,24 @@ namespace WindowsFormsApp1
             lblQuantidade.Text = "Quantidade";
             txtQuantity.Text = "0";
             btnExcluir.Text = "Excluir";
-            EscreverProdutosNaLst();
+            WriteProductsScreen();
             lblTotal.Text = $"{0:c}";
             lst_produtos.Enabled = false;
             btnFinzaliar.Enabled = false;
             btnQuantidade.Enabled = false;
+            lblCustomer.Visible = false;
+           
+            if (lst_produtos.SelectedIndex == -1)
+            {
+                return;
+            }
         }
 
-        public void EscreverProdutosNaLst()
+        public void WriteProductsScreen()
         {
             foreach (var item in DataBase.lista_produtos)
             {
-                lst_produtos.Items.Add(EscreverLinhasProdutos(item));
+                lst_produtos.Items.Add(WriteProductProperties(item));
             }
         }
 
@@ -70,33 +85,47 @@ namespace WindowsFormsApp1
 
         private void btnIniciarCompra_Click(object sender, EventArgs e) // botão adicionar
         {
-            AdicionarItemSelecionado();
+            try
+            {
+                CurrentOrder.AddItem(GetItem());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "TimeShare Soluções");
+            }
         }
 
         private void lst_produtos_DoubleClick(object sender, EventArgs e) // add w/ double click
         {
-            AdicionarItemSelecionado();
+            try
+            {
+                CurrentOrder.AddItem(GetItem());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "TimeShare Soluções");
+            }
+            
         }
 
         private void btnFinzaliar_Click(object sender, EventArgs e)
         {
+            if (CurrentOrder != null)
+            {
+                CurrentOrder.FinalizeOrder();
+                DataBase.lista_order.Add(CurrentOrder);
+                CurrentOrder = null;
+            }
+            else
+            {
+                MessageBox.Show("Order global null");
+            }
             var frm = new FrmFinalize();
             frm.ShowDialog();
-            frm.LabelCustomer.Text = Customer.Nome;
-            double total = 0.0;
-           foreach (var item in DataBase.lista_itens)
-            {
-                total += item.TotalValue;
-            }
-            frm.LabelTotal.Text = total.ToString();
-            foreach (var item in DataBase.lista_itens)
-            {
-                frm.lst_principal.Items.Add(EscreverLinhasCompra(item));
-            }
 
         }
 
-        public string EscreverLinhasCompra(OrderItems item)
+        public string WriteItemOrderScreen(OrderItems item)
         {
             var txt = lblTotal.Text.Remove(0, 2);
             var total = double.Parse(txt);
@@ -107,7 +136,7 @@ namespace WindowsFormsApp1
            $" {item.Quantity}    {item.TotalValue:c}";
         }
 
-        public string EscreverLinhasProdutos(Produto p)
+        public string WriteProductProperties(Product p)
         {
             if (p.Nome.Length >= 30)
             {
@@ -132,53 +161,46 @@ namespace WindowsFormsApp1
             return "";
         }
 
-        void AdicionarItemSelecionado()
+        OrderItems GetItem()
         {
-            if (lst_produtos.SelectedIndex == -1)
-            {
-                return;
-            }
-            else if (txtQuantity.Text == null || string.IsNullOrEmpty(txtQuantity.Text) || Convert.ToInt32(txtQuantity.Text) <= 0)
+            if (txtQuantity.Text == null || string.IsNullOrEmpty(txtQuantity.Text) || Convert.ToInt32(txtQuantity.Text) <= 0)
             {
                 MessageBox.Show("Digite uma quantidade válida");
             }
-            else
-            {
-                try
-                {
-                    Produto p = DataBase.lista_produtos[lst_produtos.SelectedIndex]; // produto selecionado na lst
-                    var quantity = int.Parse(txtQuantity.Text); // define qtd
-                    var item = new OrderItems(p, quantity); // criar o item
-                    if (Customer != null)
-                    {
-                        var order = new Order(Customer); // criar a order 
-                        order.AddItem(item);     // adiciona o item à order
-
-                        DataBase.lista_itens = order.Items; // atribui data base a lista de itens 
-
-                        RefreshScreen();
-                        lst_compras.Items.Add(EscreverLinhasCompra(item));
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cliente nulo", "TimeShare Soluções");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Não foi possível adicionar o produto. {ex.Message}");
-                }
-            }
+            Product p = DataBase.lista_produtos[lst_produtos.SelectedIndex];
+            var quantity = int.Parse(txtQuantity.Text);
+            var item = new OrderItems(p, quantity);
+            RefreshScreen();
+            lst_compras.Items.Add(WriteItemOrderScreen(item));
+            return item;
         }
 
+        //void AdicionarItemSelecionado()
+        //{
 
+        //    else
+        //    {
+        //        try
+        //        {
+                  
+                    
+        //            RefreshScreen();
+        //            lst_compras.Items.Add(EscreverLinhasCompra(item));
+                   
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"Não foi possível adicionar o produto. {ex.Message}");
+        //        }
+        //    }
+        //}
 
         void RefreshScreen()
         {
             lst_produtos.Items.Clear();
             foreach (var item in DataBase.lista_produtos)
             {
-                lst_produtos.Items.Add(EscreverLinhasProdutos(item));
+                lst_produtos.Items.Add(WriteProductProperties(item));
             }
         }
 
@@ -186,11 +208,24 @@ namespace WindowsFormsApp1
         {
             var frm = new FrmChooseUser();
             frm.ShowDialog();
-            Customer = frm.CustomerChosen;
-            lst_produtos.Enabled = true;
-            btnFinzaliar.Enabled = true;
-            btnQuantidade.Enabled = true;
-
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                CurrentCustomer = frm.CustomerChosen;
+                lst_produtos.Enabled = true;
+                btnFinzaliar.Enabled = true;
+                btnQuantidade.Enabled = true;
+                if (CurrentCustomer != null)
+                {
+                    var order = new Order(CurrentCustomer);
+                    CurrentOrder = order;
+                    lblCustomer.Visible = true;
+                    lblCustomer.Text = $"Bem-vindo {CurrentCustomer.Nome}";
+                }
+                else
+                {
+                    MessageBox.Show("Customer null");
+                }
+            }
         }
     }
 }

@@ -16,10 +16,10 @@ namespace WindowsFormsApp1.Controls
             {
                Convert.ToDouble(this.Text.Replace("R$ ", ""));                
             }
-            catch
+            catch(Exception)
             {
                 this.Text = "";
-                MessageBox.Show("Valor inválido");
+                throw new Exception("Valor inválido");
 
             }
         }
@@ -48,8 +48,7 @@ namespace WindowsFormsApp1.Controls
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',')
             {
                 e.Handled = true;
-            }
-            
+            }         
         }
     }
 }

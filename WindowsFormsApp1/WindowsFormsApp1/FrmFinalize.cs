@@ -12,15 +12,33 @@ namespace WindowsFormsApp1
 {
     public partial class FrmFinalize : Form
     {
-        public ListBox lst_principal { get; set; }
-        public Label LabelTotal { get; set; }
-        public Label LabelCustomer  { get; set; }
-      
         public FrmFinalize()
         {
             InitializeComponent();
-            lblCustomer.Text = LabelCustomer.Text;
-            lblTotal = LabelTotal;
+            GetInfos(DataBase.lista_order);
+            lblData.Text = $"{DateTime.Now}";
+        }
+
+        public void GetInfos(List<Order> orders)
+        {
+            double total = 0;
+            foreach (var order in orders)
+            {
+                lblCustomer.Text = $"Cliente: {order.Customer}";
+                lblStatus.Text = $"Status do pedido: {order.Status}";
+                foreach (var item in order.Items)
+                {                  
+                    total =  total + item.TotalValue;
+                    
+                    lst_principal.Items.Add($"produto: {item.OrderProduto.Nome} | qtd: {item.Quantity} | total: {item.TotalValue}");
+                }
+            }
+            lblTotal.Text = $"Total {total:c}";
+        }
+
+        private void lblCustomer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
