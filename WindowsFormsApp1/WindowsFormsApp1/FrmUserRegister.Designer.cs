@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectFrms
+namespace WindowsFormsApp1
 {
     partial class FrmUserRegister
     {

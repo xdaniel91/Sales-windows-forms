@@ -16,7 +16,8 @@ namespace WindowsFormsApp1
 {
     public partial class FrmUserRegister : UserControl
     {
-        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
+       // string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
+        string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers";
        
         public FrmUserRegister()
         {
