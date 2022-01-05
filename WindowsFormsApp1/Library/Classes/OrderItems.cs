@@ -17,5 +17,10 @@
         {
             return $"{OrderProduto.Nome} // {Quantity} // {TotalValue}";
         }
+
+        public void RemoveOrderItem(Product p, int quantity)
+        {
+            p.AddQtdeDisponivel(quantity);
+        }
     }
 }

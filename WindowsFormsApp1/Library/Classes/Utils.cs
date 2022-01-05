@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Net;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using WindowsFormsApp1;
 
 namespace Library.Classes
 {
-    public class Cls_Uteis
+    public class Utils
     {
 
         //public static bool ValidaSenhaLogin(string senha)
@@ -74,6 +70,20 @@ namespace Library.Classes
                 resto = 11 - resto;
             digito = digito + resto.ToString();
             return cpf.EndsWith(digito);
+        }
+
+        public static void FeedLists()
+        {
+            string connectionProduct = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioProducts";
+            string connectionCustomer = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
+            string connectionOrders = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders";
+            //string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioProducts";
+            var p = new Product("", "", 0, 0);
+            var c = new Person();
+            var o = new Order(c);
+            DataBase.lista_order = o.BuscarFicharioTodos(connectionOrders);
+            DataBase.lista_produtos = p.BuscarFicharioTodos(connectionProduct);
+            DataBase.lista_users = c.BuscarFicharioTodos(connectionCustomer);
         }
 
     }

@@ -1,4 +1,6 @@
-﻿using Library.Classes;
+﻿using Library.BaseDados;
+using Library.Classes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -15,11 +17,11 @@ namespace WindowsFormsApp1
     public class Order
     {
         public List<OrderItems> Items { get; private set; }
-        public Customer Customer { get; private set; }
+        public Person Customer { get; private set; }
         public OrderStatus Status { get; private set; }
 
 
-        public Order(Customer customer)
+        public Order(Person customer)
         {
             Items = new List<OrderItems>();
             Customer = customer;
@@ -32,6 +34,7 @@ namespace WindowsFormsApp1
         public void RemoveItem(OrderItems item)
         {
             Items.Remove(item);
+            item.OrderProduto.AddQtdeDisponivel(item.Quantity);
         }
         public void FinalizeOrder()
         {
@@ -56,6 +59,65 @@ namespace WindowsFormsApp1
             return $"{Customer.Nome} // {Status}";
         }
 
+        #region "CRUD do Fichario"
+
+        public void IncluirFichario(string Conexao)
+        {
+            string orderJson = Order.SerializedClassUnit(this);
+            Fichario F = new Fichario(Conexao);
+            if (F.status)
+            {
+                F.Incluir(orderJson);
+                if (!(F.status))
+                {
+                    throw new Exception(F.mensagem);
+                }
+            }
+            else
+            {
+                throw new Exception(F.mensagem);
+            }
+        }
+        public List<Order> BuscarFicharioTodos(string conexao) // retorna uma lista de Orders
+
+        {
+            Fichario F = new Fichario(conexao);
+            if (F.status)
+            {
+                _ = new List<string>();
+                List<string> List = F.BuscarTodos();
+                if (F.status)
+                {
+                    List<Order> listaOrders = new List<Order>();
+                    for (int i = 0; i <= List.Count - 1; i++)
+                    {
+                        Order C = DesSerializedClassUnit(List[i]);
+                        listaOrders.Add(C);
+                    }
+
+                    return listaOrders;
+                }
+                else
+                {
+                    throw new Exception(F.mensagem);
+                }
+            }
+            else
+            {
+                throw new Exception(F.mensagem);
+            }
+        }
+
+        #endregion
+        public static Order DesSerializedClassUnit(string vJson)
+        {
+            return JsonConvert.DeserializeObject<Order>(vJson);
+        }
+
+        public static string SerializedClassUnit(Order unit)
+        {
+            return JsonConvert.SerializeObject(unit);
+        }
 
     }
 }

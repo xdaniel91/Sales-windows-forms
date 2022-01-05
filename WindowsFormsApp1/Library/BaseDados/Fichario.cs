@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Library.BaseDados
 {
     public class Fichario
     {
-
         public string diretorio;
         public string mensagem;
         public bool status;
@@ -31,7 +27,6 @@ namespace Library.BaseDados
                 status = false;
                 mensagem = "Conexão com o Fichario com erro: " + ex.Message;
             }
-
         }
 
         public void Incluir(string Id, string jsonUnit)
@@ -50,6 +45,23 @@ namespace Library.BaseDados
                     status = true;
                     mensagem = "Inclusão efetuada com sucesso. Identificador: " + Id;
                 }
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Conexão com o Fichario com erro: " + ex.Message;
+            }
+        }
+
+        public void Incluir(string jsonUnit)
+        {
+            status = true;
+            try
+            {
+                File.WriteAllText(diretorio + "\\" + "Order" + ".json", jsonUnit);
+                status = true;
+                mensagem = "Inclusão efetuada com sucesso.";
+
             }
             catch (Exception ex)
             {

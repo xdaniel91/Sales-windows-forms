@@ -15,21 +15,21 @@ namespace WindowsFormsApp1
         public string Id { get; private set; }
 
         [Required(ErrorMessage = "Campo Nome obrigatório")]
-        [StringLength(50, ErrorMessage = "O nome do produto deve ter no máximo 30 caracteres")]
+        [StringLength(20, ErrorMessage = "O nome do produto deve ter no máximo 20 caracteres")]
         public string Nome { get; private set; }
 
         [Required(ErrorMessage = "Campo preço obrigatório")]
         public double Preco { get; private set; }
 
-        [Required(ErrorMessage = "Campo Quantidade obrigatório")]
+        [Required(ErrorMessage = "Campo Quantidade obrigatório")]     
         public int QuantidadeDisponivel { get; private set; }
 
-        public Product(string id, string nome, double preco, int qtdeDisponivel)
+        public Product(string id, string nome, double preco, int quantidadeDisponivel)
         {
             Id = id;
             Nome = nome;
             Preco = preco;
-            QuantidadeDisponivel = qtdeDisponivel;
+            QuantidadeDisponivel = quantidadeDisponivel;
         }
 
         public void ValidaClasse()
@@ -93,56 +93,56 @@ namespace WindowsFormsApp1
             }
         }
 
-        public Product BuscarFichario(string id, string conexao)
-        {
-            Fichario F = new Fichario(conexao);
-            if (F.status)
-            {
-                string clienteJson = F.Buscar(id);
-                return Product.DesSerializedClassUnit(clienteJson);
-            }
-            else
-            {
-                throw new Exception(F.mensagem);
-            }
-        }
+        //public Product BuscarFichario(string id, string conexao)
+        //{
+        //    Fichario F = new Fichario(conexao);
+        //    if (F.status)
+        //    {
+        //        string clienteJson = F.Buscar(id);
+        //        return Product.DesSerializedClassUnit(clienteJson);
+        //    }
+        //    else
+        //    {
+        //        throw new Exception(F.mensagem);
+        //    }
+        //}
 
-        public void AlterarFichario(string conexao)
-        {
-            string clienteJson = Product.SerializedClassUnit(this);
-            Fichario F = new Fichario(conexao);
-            if (F.status)
-            {
-                F.Alterar(this.Id, clienteJson);
-                if (!(F.status))
-                {
-                    throw new Exception(F.mensagem);
-                }
-            }
-            else
-            {
-                throw new Exception(F.mensagem);
-            }
-        }
+        //public void AlterarFichario(string conexao)
+        //{
+        //    string clienteJson = Product.SerializedClassUnit(this);
+        //    Fichario F = new Fichario(conexao);
+        //    if (F.status)
+        //    {
+        //        F.Alterar(this.Id, clienteJson);
+        //        if (!(F.status))
+        //        {
+        //            throw new Exception(F.mensagem);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        throw new Exception(F.mensagem);
+        //    }
+        //}
 
-        public void ApagarFichario(string conexao)
-        {
+        //public void ApagarFichario(string conexao)
+        //{
 
-            Fichario F = new Fichario(conexao);
-            if (F.status)
-            {
-                F.Apagar(this.Id);
-                if (!(F.status))
-                {
-                    throw new Exception(F.mensagem);
-                }
-            }
-            else
-            {
-                throw new Exception(F.mensagem);
-            }
+        //    Fichario F = new Fichario(conexao);
+        //    if (F.status)
+        //    {
+        //        F.Apagar(this.Id);
+        //        if (!(F.status))
+        //        {
+        //            throw new Exception(F.mensagem);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        throw new Exception(F.mensagem);
+        //    }
 
-        }
+        //}
 
         public List<Product> BuscarFicharioTodos(string conexao) // retorna uma lista de produtos
 
@@ -178,7 +178,8 @@ namespace WindowsFormsApp1
 
         public static Product DesSerializedClassUnit(string vJson)
         {
-            return JsonConvert.DeserializeObject<Product>(vJson);
+            var result = JsonConvert.DeserializeObject<Product>(vJson);
+            return result;
         }
 
         public static string SerializedClassUnit(Product unit)

@@ -37,8 +37,8 @@ namespace WindowsFormsApp1
             this.lblName = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.lblId);
             this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.txtQuantity);
@@ -56,7 +57,6 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.lblPrice);
             this.panel1.Controls.Add(this.btnRegister);
-            this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.lblQuantity);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -131,20 +131,11 @@ namespace WindowsFormsApp1
             this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRegister.Location = new System.Drawing.Point(2, 281);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(290, 32);
+            this.btnRegister.Size = new System.Drawing.Size(309, 32);
             this.btnRegister.TabIndex = 7;
             this.btnRegister.Text = "button1";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtName.Location = new System.Drawing.Point(139, 112);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(151, 24);
-            this.txtName.TabIndex = 1;
             // 
             // lblQuantity
             // 
@@ -156,6 +147,14 @@ namespace WindowsFormsApp1
             this.lblQuantity.Size = new System.Drawing.Size(113, 24);
             this.lblQuantity.TabIndex = 5;
             this.lblQuantity.Text = "label3";
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtName.Location = new System.Drawing.Point(139, 116);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(172, 24);
+            this.txtName.TabIndex = 15;
             // 
             // FrmRegisterProduct
             // 
@@ -181,7 +180,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.TextBox txtName;
     }
 }

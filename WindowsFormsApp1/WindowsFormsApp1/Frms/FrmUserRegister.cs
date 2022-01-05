@@ -16,9 +16,9 @@ namespace WindowsFormsApp1
 {
     public partial class FrmUserRegister : UserControl
     {
-       // string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
-        string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers";
-       
+        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
+        //string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers";
+
         public FrmUserRegister()
         {
             InitializeComponent();
@@ -48,12 +48,12 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Inclusão não permitida. {ex.Message}", "Timeshare Soluções");
+                MessageBox.Show($"Inclusão não permitida. {ex.Message}", "TimeShare Soluções");
             }
         }
-        Customer ReadFrm()
+        Person ReadFrm()
         {
-            var user = new Customer();
+            var user = new Person();
             try
             {
                 user.Nome = txtNome.Text;

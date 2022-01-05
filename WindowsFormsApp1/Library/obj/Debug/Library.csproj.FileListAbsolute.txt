@@ -1,6 +1,5 @@
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.dll
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.pdb
-C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.AssemblyReference.cache
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.dll
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.pdb
@@ -23,3 +22,7 @@ C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Libr
 C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete
 C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.dll
 C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.dll.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.AssemblyReference.cache

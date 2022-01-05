@@ -1,19 +1,12 @@
 ﻿using Library.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class FrmChooseUser : Form
     {
-        public Customer CustomerChosen{ get; set; }
+        public Person CustomerChosen{ get; set; }
 
         public FrmChooseUser()
         {
@@ -39,7 +32,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    Customer user = DataBase.lista_users[lst_cliente.SelectedIndex]; // usuario selecionado na lst
+                    Person user = DataBase.lista_users[lst_cliente.SelectedIndex]; // usuario selecionado na lst
                     if (user != null)
                     {
                         CustomerChosen = user;

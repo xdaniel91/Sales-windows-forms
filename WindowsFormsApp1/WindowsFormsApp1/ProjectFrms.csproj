@@ -57,54 +57,54 @@
     <Compile Include="Controls\txtMoeda.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FrmChooseUser.cs">
+    <Compile Include="Frms\FrmChooseUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmChooseUser.Designer.cs">
+    <Compile Include="Frms\FrmChooseUser.Designer.cs">
       <DependentUpon>FrmChooseUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmFinalize.cs">
+    <Compile Include="Frms\FrmFinalize.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmFinalize.Designer.cs">
+    <Compile Include="Frms\FrmFinalize.Designer.cs">
       <DependentUpon>FrmFinalize.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Frms\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="Frms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrder.cs">
+    <Compile Include="Frms\FrmOrder.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmOrder.Designer.cs">
+    <Compile Include="Frms\FrmOrder.Designer.cs">
       <DependentUpon>FrmOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FrmRegisterProduct.cs">
+    <Compile Include="Frms\FrmRegisterProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmRegisterProduct.Designer.cs">
+    <Compile Include="Frms\FrmRegisterProduct.Designer.cs">
       <DependentUpon>FrmRegisterProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUserRegister.cs">
+    <Compile Include="Frms\FrmUserRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmUserRegister.Designer.cs">
+    <Compile Include="Frms\FrmUserRegister.Designer.cs">
       <DependentUpon>FrmUserRegister.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmChooseUser.resx">
+    <EmbeddedResource Include="Frms\FrmChooseUser.resx">
       <DependentUpon>FrmChooseUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmFinalize.resx">
+    <EmbeddedResource Include="Frms\FrmFinalize.resx">
       <DependentUpon>FrmFinalize.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
+    <EmbeddedResource Include="Frms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOrder.resx">
+    <EmbeddedResource Include="Frms\FrmOrder.resx">
       <DependentUpon>FrmOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -116,10 +116,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmRegisterProduct.resx">
+    <EmbeddedResource Include="Frms\FrmRegisterProduct.resx">
       <DependentUpon>FrmRegisterProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUserRegister.resx">
+    <EmbeddedResource Include="Frms\FrmUserRegister.resx">
       <DependentUpon>FrmUserRegister.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
