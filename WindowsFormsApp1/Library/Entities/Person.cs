@@ -15,6 +15,7 @@ namespace Library.Classes
     public class Person : IPersonContract
     {
         public static IPersonContract Shared = new Person();
+        public  string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers";
 
         [Required(ErrorMessage = "Id do cliente obrigatório")]
         [StringLength(4, MinimumLength = 4, ErrorMessage = "O código do cliente deve ter 4 dígitos")]
@@ -406,7 +407,8 @@ namespace Library.Classes
         public List<Person> GetFichario()
         {
             var p = new Person();
-            var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers");
+            // var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers");
+            var result = p.BuscarFicharioTodos("C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers");
             return result;
         }
     }

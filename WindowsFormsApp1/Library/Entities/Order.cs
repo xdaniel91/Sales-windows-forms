@@ -39,6 +39,10 @@ namespace WindowsFormsApp1
         }
         public void AddItem(OrderItems item)
         {
+            if (this.Status != OrderStatus.InProgress)
+            {
+                throw new Exception($"Só é possível adicionar itens a uma compra InProgress. {this.Status}");
+            }
             Items.Add(item);
         }
 
@@ -128,7 +132,8 @@ namespace WindowsFormsApp1
         public List<Order> GetOrders()
         {
             var o = new Order();
-            var result = o.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders");
+            // var result = o.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders");
+            var result = o.BuscarFicharioTodos("C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioOrders");
             return result;
         }
     }

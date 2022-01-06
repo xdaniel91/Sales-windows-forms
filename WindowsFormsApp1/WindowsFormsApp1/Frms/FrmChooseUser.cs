@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
 
         public void EscreverUsers()
         {
-            
+            Utils.FeedLists();
             foreach (var item in DataBase.lista_users)
             {
                 lst_cliente.Items.Add(item);

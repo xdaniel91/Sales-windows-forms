@@ -7,8 +7,8 @@ namespace WindowsFormsApp1
 {
     public partial class FrmUserRegister : UserControl
     {
-        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
-        //string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers";
+        //string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
+        string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers";
 
         public FrmUserRegister()
         {
@@ -52,6 +52,7 @@ namespace WindowsFormsApp1
                 person.ValidaClasse();
                 person.ValidaComplemento();
                 person.IncluirFichario(Connection);
+                Utils.FeedLists();
 
                 MessageBox.Show("Usuário incluido com sucesso!", "TimeShare Soluções");
             }

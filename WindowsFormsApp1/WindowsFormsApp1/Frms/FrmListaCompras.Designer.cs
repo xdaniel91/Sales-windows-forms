@@ -35,19 +35,25 @@ namespace WindowsFormsApp1.Frms
             // 
             // lst_orders
             // 
+            this.lst_orders.BackColor = System.Drawing.Color.PapayaWhip;
+            this.lst_orders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lst_orders.FormattingEnabled = true;
+            this.lst_orders.ItemHeight = 18;
             this.lst_orders.Location = new System.Drawing.Point(18, 59);
             this.lst_orders.Name = "lst_orders";
-            this.lst_orders.Size = new System.Drawing.Size(419, 498);
+            this.lst_orders.Size = new System.Drawing.Size(253, 490);
             this.lst_orders.TabIndex = 0;
             this.lst_orders.DoubleClick += new System.EventHandler(this.DoubleClick);
             // 
             // lst_infos
             // 
+            this.lst_infos.BackColor = System.Drawing.Color.PapayaWhip;
+            this.lst_infos.Font = new System.Drawing.Font("Arial", 12F);
             this.lst_infos.FormattingEnabled = true;
-            this.lst_infos.Location = new System.Drawing.Point(468, 59);
+            this.lst_infos.ItemHeight = 18;
+            this.lst_infos.Location = new System.Drawing.Point(362, 59);
             this.lst_infos.Name = "lst_infos";
-            this.lst_infos.Size = new System.Drawing.Size(410, 498);
+            this.lst_infos.Size = new System.Drawing.Size(593, 490);
             this.lst_infos.TabIndex = 1;
             // 
             // FrmListaCompras
@@ -57,7 +63,7 @@ namespace WindowsFormsApp1.Frms
             this.Controls.Add(this.lst_infos);
             this.Controls.Add(this.lst_orders);
             this.Name = "FrmListaCompras";
-            this.Size = new System.Drawing.Size(890, 628);
+            this.Size = new System.Drawing.Size(1031, 628);
             this.ResumeLayout(false);
 
         }

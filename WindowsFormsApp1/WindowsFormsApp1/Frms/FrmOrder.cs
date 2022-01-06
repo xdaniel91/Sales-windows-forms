@@ -6,8 +6,8 @@ namespace WindowsFormsApp1
 {
     public partial class FrmOrder : UserControl
     {
-        //string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioProducts";
-        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders";
+        string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioOrders";
+        //string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders";
         Person CurrentCustomer = null;
         Order CurrentOrder = null;
 
@@ -86,15 +86,23 @@ namespace WindowsFormsApp1
             if (CurrentOrder != null)
             {
                 CurrentOrder.FinalizeOrder(); // status = orderPlaced
-                CurrentOrder.IncluirFichario(Connection);
-                CurrentOrder.IncluirLista();
-                lst_compras.Items.Clear();
-                lblTotal.Text = $"{0:c}";
-                var frm = new FrmFinalize();
-                frm.ShowDialog(); //abre o "cupom"
+                try
+                {
+                    CurrentOrder.IncluirFichario(Connection);
+                    CurrentOrder.IncluirLista();
+                    lst_compras.Items.Clear();
+                    lblTotal.Text = $"{0:c}";
+                    var frm = new FrmFinalize();
+                    frm.ShowDialog(); //abre o "cupom"
 
-                CurrentOrder = null;
-                CurrentCustomer = null;
+                    CurrentOrder = null;
+                    CurrentCustomer = null;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "TimeShare Soluções");
+                }
+               
             }
             else
             {

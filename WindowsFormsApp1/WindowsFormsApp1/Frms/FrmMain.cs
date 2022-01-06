@@ -84,19 +84,19 @@ namespace WindowsFormsApp1
         {
             if (DataBase.lista_order.Count == 0)
             {
-                btnCompras.Enabled = false;
+                MessageBox.Show("Nenhuma compra foi cadastrada");
             }
             else
             {
-                btnCompras.Enabled = true;
+                var frm = new FrmListaCompras();
+                var tb = new TabPage();
+                tb.Name = "Lista de compras";
+                tb.Text = "Lista de compras";
+                tb.Controls.Add(frm);
+                tbc_app.Controls.Add(tb);
+                tbc_app.SelectedTab = tb;
             }
-            var frm = new FrmListaCompras();
-            var tb = new TabPage();
-            tb.Name = "Lista de compras";
-            tb.Text = "Lista de compras";
-            tb.Controls.Add(frm);
-            tbc_app.Controls.Add(tb);
-            tbc_app.SelectedTab = tb;
+
         }
     }
 

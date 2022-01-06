@@ -12,6 +12,7 @@ namespace WindowsFormsApp1.Frms
 {
     public partial class FrmListaCompras : UserControl
     {
+        Order OrderSelect;
         public FrmListaCompras()
         {
             InitializeComponent();
@@ -22,34 +23,36 @@ namespace WindowsFormsApp1.Frms
         {
             foreach (var order in DataBase.lista_order)
             {
-                lst_orders.Items.Add(WriteScreen(order));
+                lst_orders.Items.Add(WriteOrder(order));
             }
         }
 
         void GetOrder()
         {
             Order o = DataBase.lista_order[lst_orders.SelectedIndex];
-            lst_infos.Items.Add(WriteItem(o));
+            OrderSelect = o;
         }
 
-        string WriteScreen(Order order)
+        string WriteOrder(Order order)
         {
-            return $"{order.Customer.Nome}   {order.Customer.Id}";
+            return $"Cliente: {order.Customer.Nome} | Id: {order.Customer.Id}";
         }
 
-        public string WriteItem(Order order)
+        public void GetInfos(Order order)
         {
-            string result = "";
+            
             foreach (var item in order.Items)
             {
-                 result = ($"produto: {item.OrderProduto.Nome} | qtd: {item.Quantity} | total: {item.TotalValue}");            
+                 lst_infos.Items.Add($"produto: {item.OrderProduto.Nome} |  qtd: {item.Quantity} |  quantidade: {item.Quantity} |  Total {item.TotalValue:c}");            
             }
-            return result;
+            
         }
 
         private void DoubleClick(object sender, EventArgs e)
         {
+            lst_infos.Items.Clear();
             GetOrder();
+            GetInfos(OrderSelect);
         }
     }
 }

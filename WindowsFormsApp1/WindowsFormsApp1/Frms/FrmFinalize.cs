@@ -9,24 +9,24 @@ namespace WindowsFormsApp1
         public FrmFinalize()
         {
             InitializeComponent();
-            GetInfos(DataBase.lista_order);
+            var lastIndex = DataBase.lista_order.Count;
+            GetInfos(DataBase.lista_order[lastIndex - 1]);
             lblData.Text = $"{DateTime.Now}";
         }
 
-        public void GetInfos(List<Order> orders)
+        public void GetInfos(Order order)
         {
             double total = 0;
-            foreach (var order in orders)
+
+            lblCustomer.Text = $"Cliente: {order.Customer}";
+            lblStatus.Text = order.Status.ToString();
+            foreach (var item in order.Items)
             {
-                lblCustomer.Text = $"Cliente: {order.Customer}";
-                lblStatus.Text = order.Status.ToString();
-                foreach (var item in order.Items)
-                {                  
-                    total =  total + item.TotalValue;
-                    
-                    lst_principal.Items.Add($"produto: {item.OrderProduto.Nome} | qtd: {item.Quantity} | total: {item.TotalValue}");
-                }
+                total = total + item.TotalValue;
+
+                lst_principal.Items.Add($"produto: {item.OrderProduto.Nome} | qtd: {item.Quantity} | total: {item.TotalValue}");
             }
+
             lblTotal.Text = $"Total {total:c}";
         }
 
