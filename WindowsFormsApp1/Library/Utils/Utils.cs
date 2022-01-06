@@ -1,22 +1,13 @@
 ﻿using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using WindowsFormsApp1;
 
 namespace Library.Classes
 {
     public class Utils
     {
-
-        //public static bool ValidaSenhaLogin(string senha)
-        //{
-        //    if (senha == "curso")
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
         public static string GeraJSONCEP(string CEP)
         {
             System.Net.HttpWebRequest requisicao = (HttpWebRequest)WebRequest.Create("https://viacep.com.br/ws/" + CEP + "/json/");
@@ -37,7 +28,7 @@ namespace Library.Classes
             return sb.ToString();
         }
 
-        public static bool Valida(string cpf)
+        public static bool ValidaCpf(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -72,18 +63,26 @@ namespace Library.Classes
             return cpf.EndsWith(digito);
         }
 
+        public static bool ValidaEmail(string email)
+        {
+            email = email.Trim();
+            bool IsValid;
+            if (string.IsNullOrEmpty(email))
+            {
+                IsValid = false;
+                return IsValid;
+            }
+
+            IsValid = Regex.IsMatch(email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+
+            return IsValid;
+        }
+
         public static void FeedLists()
         {
-            string connectionProduct = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioProducts";
-            string connectionCustomer = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers";
-            string connectionOrders = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders";
-            //string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioProducts";
-            var p = new Product("", "", 0, 0);
-            var c = new Person();
-            var o = new Order(c);
-            DataBase.lista_order = o.BuscarFicharioTodos(connectionOrders);
-            DataBase.lista_produtos = p.BuscarFicharioTodos(connectionProduct);
-            DataBase.lista_users = c.BuscarFicharioTodos(connectionCustomer);
+            //DataBase.lista_order = Order.Shared.GetOrders();
+            DataBase.lista_produtos = Product.Shared.GetProducts();
+            DataBase.lista_users = Person.Shared.GetFichario();
         }
 
     }

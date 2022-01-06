@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 
 namespace WindowsFormsApp1
 {
-    public class Product
+    public interface IProductContract
     {
+        List<Product> GetProducts();
+    }
+    public class Product : IProductContract
+    {
+       public static IProductContract Shared = new Product();
 
         [Required(ErrorMessage = "Campo Id obrigatório")]
         [StringLength(4, MinimumLength = 4, ErrorMessage = "O id do produto deve ter 4 dígitos")]
@@ -21,7 +26,7 @@ namespace WindowsFormsApp1
         [Required(ErrorMessage = "Campo preço obrigatório")]
         public double Preco { get; private set; }
 
-        [Required(ErrorMessage = "Campo Quantidade obrigatório")]     
+        [Required(ErrorMessage = "Campo Quantidade obrigatório")]
         public int QuantidadeDisponivel { get; private set; }
 
         public Product(string id, string nome, double preco, int quantidadeDisponivel)
@@ -31,7 +36,9 @@ namespace WindowsFormsApp1
             Preco = preco;
             QuantidadeDisponivel = quantidadeDisponivel;
         }
-
+        private Product()
+        {
+        }
         public void ValidaClasse()
         {
             ValidationContext context = new ValidationContext(this, serviceProvider: null, items: null);
@@ -47,25 +54,15 @@ namespace WindowsFormsApp1
                 }
                 throw new ValidationException(sbrErrors.ToString());
             }
-
         }
 
-        public void AddQtdeDisponivel(int qtde)
+        protected internal void RemoveQtdeDisponivel(int qtde)
         {
-            if (qtde <= 0)
+            if (qtde > QuantidadeDisponivel || qtde <= 0)
             {
-                throw new Exception("Digite um número válido");
+                throw new Exception("Valor inválido");
             }
-            QuantidadeDisponivel += qtde;
-        }
-
-        public void RemoveQtdeDisponivel(int qtde)
-        {
-            if (qtde > QuantidadeDisponivel)
-            {
-                throw new Exception("Quantidade disponível é insuficiente");
-            }
-            QuantidadeDisponivel = QuantidadeDisponivel - qtde;
+            QuantidadeDisponivel -= qtde;
         }
 
         public override string ToString()
@@ -185,6 +182,13 @@ namespace WindowsFormsApp1
         public static string SerializedClassUnit(Product unit)
         {
             return JsonConvert.SerializeObject(unit);
+        }
+
+        public List<Product> GetProducts()
+        {
+            var p = new Product();
+            var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioProducts");
+            return result;
         }
     }
 }

@@ -1,16 +1,7 @@
 ﻿using Library.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Controls;
 
 namespace WindowsFormsApp1
 {
@@ -27,59 +18,40 @@ namespace WindowsFormsApp1
             lblName.Text = "Nome";
             lblData.Text = "Nascimento";
             btnRegister.Text = "Confirmar";
+            lblEmail.Text = "Email";
         }
+
+        Person ReadFrm()
+        {
+            try
+            {
+                var userName = txtNome.Text;
+                var birthdate = Convert.ToDateTime(msktxtData.Text);
+                var userCpf = txtCpf.Text;
+                var userId = txtId.Text;
+                var userEmail = txtEmail.Text;
+                var person = new Person(userId, userName, birthdate, userCpf, userEmail);
+                return person;
+            }
+            catch (ValidationException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                var user = ReadFrm();
-                user.ValidaClasse();
-                user.ValidaComplemento();
-                user.IncluirFichario(Connection);
-                DataBase.lista_users.Add(user);
-
-                MessageBox.Show("Usuário incluido com sucesso!", "TimeShare Soluções");
-            }
-            catch (ValidationException vex)
-            {
-
-                MessageBox.Show($"Não foi possível registrar o usuário, verifique os dados! {vex.Message}", "TimeShare Soluções");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Inclusão não permitida. {ex.Message}", "TimeShare Soluções");
-            }
-        }
-        Person ReadFrm()
-        {
-            var user = new Person();
-            try
-            {
-                user.Nome = txtNome.Text;
-                var birthdate = Convert.ToDateTime(msktxtData.Text);
-                user.BirthDate = birthdate;
-                user.CPF = txtCpf.Text;
-                user.Id = txtId.Text;
-
-                return user;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return user;
-        }
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var user = ReadFrm();
-                user.ValidaClasse();
-                user.ValidaComplemento();
-                user.IncluirFichario(Connection);
-                DataBase.lista_users.Add(user);
+                var person = ReadFrm();
+                person.ValidaClasse();
+                person.ValidaComplemento();
+                person.IncluirFichario(Connection);
 
                 MessageBox.Show("Usuário incluido com sucesso!", "TimeShare Soluções");
             }
@@ -94,5 +66,27 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var person = ReadFrm();
+                person.ValidaClasse();
+                person.ValidaComplemento();
+                person.IncluirFichario(Connection);
+
+                MessageBox.Show("Usuário incluido com sucesso!", "TimeShare Soluções");
+            }
+            catch (ValidationException vex)
+            {
+
+                MessageBox.Show($"Não foi possível registrar o usuário, verifique os dados! {vex.Message}", "TimeShare Soluções");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Inclusão não permitida. {ex.Message}", "Timeshare Soluções");
+            }
+        }
     }
 }
+

@@ -7,23 +7,32 @@ using Newtonsoft.Json;
 
 namespace Library.Classes
 {
-    public class Person
+    public interface IPersonContract
     {
+        List<Person> GetFichario();
+    }
+
+    public class Person : IPersonContract
+    {
+        public static IPersonContract Shared = new Person();
+
         [Required(ErrorMessage = "Id do cliente obrigatório")]
         [StringLength(4, MinimumLength = 4, ErrorMessage = "O código do cliente deve ter 4 dígitos")]
-        public string Id { get;  set; }
+        public string Id { get; set; }
 
         // infos pessoais
         [Required(ErrorMessage = "Campo nome obrigatório")]
         [StringLength(50, ErrorMessage = "Campo nome deve ter no máximo 50 caracteres")]
-        public string Nome { get;  set; }
+        public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Campo CPF obrigatório")]
-        [StringLength(11, MinimumLength = 11, ErrorMessage = "Campo CPF deve ter 11 dígitos")]
-        public string CPF { get;  set; }
+        [Required(ErrorMessage = "Campo Cpf obrigatório")]
+        public string Cpf { get; set; }
+
+        [Required(ErrorMessage = "Campo Email obrigatório")]
+        public string Email { get; private set; }
 
         [Required(ErrorMessage = "Campo data de nascimento obrigatório")]
-        public DateTime BirthDate { get;  set; }
+        public DateTime BirthDate { get; set; }
 
         public int Age
         {
@@ -39,23 +48,33 @@ namespace Library.Classes
             }
         }
 
+        public Person()
+        {
+        }
+
+        public Person(string id, string nome, DateTime birth, string cpf, string email)
+        {
+            Id = id;
+            Nome = nome;
+            BirthDate = birth;
+            if (Age > 110 || Age < 13) throw new Exception("Idade inferior a 13 anos ou superior a 110 não permitida.");
+
+            Cpf = cpf;
+            Email = email;
+        }
+
         public override string ToString()
         {
             return Nome;
         }
 
-
         public void ValidaComplemento()
         {
-            bool isvalid = Utils.Valida(this.CPF);
-            if (isvalid == false)
-            {
-                throw new Exception("CPF inválido");
-            }
-            if (Age > 110 || Age < 13)
-            {
-                throw new Exception("Idade inferior a 13 anos ou superior a 110 não permitida.");
-            }
+            bool validCpf = Utils.ValidaCpf(this.Cpf);
+            bool validEmail = Utils.ValidaEmail(this.Email);
+
+            if (validCpf == false) throw new Exception("CPF inválido");
+            if (validEmail == false) throw new Exception("Email inválido");
         }
 
         public void ValidaClasse()
@@ -374,14 +393,21 @@ namespace Library.Classes
         //#endregion
 
 
-        public static Person DesSerializerUnit(string vJson)
+        static Person DesSerializerUnit(string vJson)
         {
             return JsonConvert.DeserializeObject<Person>(vJson);
         }
 
-        public static string SerializerUnit(Person unit)
+        static string SerializerUnit(Person unit)
         {
             return JsonConvert.SerializeObject(unit);
+        }
+
+        public List<Person> GetFichario()
+        {
+            var p = new Person();
+            var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers");
+            return result;
         }
     }
 }

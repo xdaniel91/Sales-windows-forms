@@ -39,17 +39,17 @@ namespace WindowsFormsApp1
             this.btnFinzaliar = new System.Windows.Forms.Button();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtQuantity = new WindowsFormsApp1.Controls.txtInt();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelectUser = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.txtQuantity = new WindowsFormsApp1.Controls.txtInt();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lst_produtos
@@ -165,6 +165,37 @@ namespace WindowsFormsApp1
             this.panel1.Size = new System.Drawing.Size(778, 514);
             this.panel1.TabIndex = 9;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(289, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.lblQuantidade);
+            this.panel2.Controls.Add(this.txtQuantity);
+            this.panel2.Controls.Add(this.btnQuantidade);
+            this.panel2.Location = new System.Drawing.Point(12, 423);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(342, 47);
+            this.panel2.TabIndex = 15;
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtQuantity.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Location = new System.Drawing.Point(149, 8);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(48, 22);
+            this.txtQuantity.TabIndex = 8;
+            // 
             // lblCustomer
             // 
             this.lblCustomer.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -172,9 +203,9 @@ namespace WindowsFormsApp1
             this.lblCustomer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCustomer.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomer.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblCustomer.Location = new System.Drawing.Point(228, 18);
+            this.lblCustomer.Location = new System.Drawing.Point(259, 18);
             this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(368, 40);
+            this.lblCustomer.Size = new System.Drawing.Size(497, 40);
             this.lblCustomer.TabIndex = 14;
             this.lblCustomer.Text = "label";
             this.lblCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -223,37 +254,6 @@ namespace WindowsFormsApp1
             this.label1.Text = "Produtos disponíveis";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.lblQuantidade);
-            this.panel2.Controls.Add(this.txtQuantity);
-            this.panel2.Controls.Add(this.btnQuantidade);
-            this.panel2.Location = new System.Drawing.Point(12, 423);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 47);
-            this.panel2.TabIndex = 15;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(231, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtQuantity.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(149, 8);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(48, 22);
-            this.txtQuantity.TabIndex = 8;
-            // 
             // FrmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,9 +263,9 @@ namespace WindowsFormsApp1
             this.Name = "FrmOrder";
             this.Size = new System.Drawing.Size(794, 517);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

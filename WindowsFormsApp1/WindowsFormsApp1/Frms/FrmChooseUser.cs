@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
 
         public void EscreverUsers()
         {
+            
             foreach (var item in DataBase.lista_users)
             {
                 lst_cliente.Items.Add(item);
@@ -39,7 +40,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        throw new Exception("Cliente escolhido = nulo");
+                        MessageBox.Show($"Cliente sem informações (nulo)");
                     }
                 }
                 catch (Exception ex)
@@ -51,6 +52,7 @@ namespace WindowsFormsApp1
 
         private void lst_cliente_DoubleClick(object sender, EventArgs e)
         {
+            
             AddUser();
             this.Close();
             DialogResult = DialogResult.OK;

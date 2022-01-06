@@ -1,6 +1,7 @@
 ﻿using Library.Classes;
 using System;
 using System.Windows.Forms;
+using WindowsFormsApp1.Frms;
 
 namespace WindowsFormsApp1
 {
@@ -15,6 +16,7 @@ namespace WindowsFormsApp1
             panel1.Enabled = false;
             panel1.Visible = false;
             Utils.FeedLists();
+            btnCompras.Text = "Lista de compras";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,7 +49,6 @@ namespace WindowsFormsApp1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (panel1.Enabled == true && panel1.Visible == true)
-
             {
                 panel1.Enabled = false;
                 panel1.Visible = false;
@@ -57,8 +58,6 @@ namespace WindowsFormsApp1
                 panel1.Enabled = true;
                 panel1.Visible = true;
             }
-
-
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
@@ -76,6 +75,25 @@ namespace WindowsFormsApp1
             var tb = new TabPage();
             tb.Name = "Registro de usuários";
             tb.Text = "Registro de usuários";
+            tb.Controls.Add(frm);
+            tbc_app.Controls.Add(tb);
+            tbc_app.SelectedTab = tb;
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            if (DataBase.lista_order.Count == 0)
+            {
+                btnCompras.Enabled = false;
+            }
+            else
+            {
+                btnCompras.Enabled = true;
+            }
+            var frm = new FrmListaCompras();
+            var tb = new TabPage();
+            tb.Name = "Lista de compras";
+            tb.Text = "Lista de compras";
             tb.Controls.Add(frm);
             tbc_app.Controls.Add(tb);
             tbc_app.SelectedTab = tb;

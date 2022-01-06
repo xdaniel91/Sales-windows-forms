@@ -1,6 +1,5 @@
 ﻿using Library.Classes;
 using System;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -8,6 +7,7 @@ namespace WindowsFormsApp1
     public partial class FrmOrder : UserControl
     {
         //string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioProducts";
+        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders";
         Person CurrentCustomer = null;
         Order CurrentOrder = null;
 
@@ -47,15 +47,23 @@ namespace WindowsFormsApp1
 
         private void btnIniciarCompra_Click(object sender, EventArgs e) // botão adicionar produto
         {
-            if (CurrentCustomer == null) MessageBox.Show($"Clique em '{btnSelectUser.Text}' para escolher um cliente");
-
-            try
-            {
-                CurrentOrder.AddItem(GetItem());
+            if (CurrentCustomer == null || CurrentOrder == null)
+            { 
+                MessageBox.Show($"Clique em '{btnSelectUser.Text}' para escolher um cliente"); 
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "TimeShare Soluções");
+                try
+                {
+
+                    CurrentOrder.AddItem(GetItem());
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "TimeShare Soluções");
+                }
+
             }
         }
 
@@ -78,10 +86,15 @@ namespace WindowsFormsApp1
             if (CurrentOrder != null)
             {
                 CurrentOrder.FinalizeOrder(); // status = orderPlaced
-                DataBase.lista_order.Add(CurrentOrder); // add na lista 
+                CurrentOrder.IncluirFichario(Connection);
+                CurrentOrder.IncluirLista();
+                lst_compras.Items.Clear();
+                lblTotal.Text = $"{0:c}";
                 var frm = new FrmFinalize();
                 frm.ShowDialog(); //abre o "cupom"
-                CurrentOrder = null; // deixa null 
+
+                CurrentOrder = null;
+                CurrentCustomer = null;
             }
             else
             {
@@ -100,38 +113,23 @@ namespace WindowsFormsApp1
 
         string WriteProductProperties(Product p)
         {
-            if (p.Nome.Length >= 30)
+            try
             {
-                throw new Exception("Digite um nome menor");
+                var qtdeDisponivel = p.QuantidadeDisponivel;
+                return $"{p.Nome}" + new string(' ', 20 - p.Nome.Length) + $"{qtdeDisponivel}" + new string(' ', 7 - qtdeDisponivel.ToString().Length) + $"{p.Preco:c}";
             }
-            else
+            catch (Exception ex)
             {
-                try
-                {
-                    if (String.IsNullOrEmpty(txtQuantity.Text))
-                    {
-                        txtQuantity.Text = "0";
-                    }
-                    var qtdeDisponivel = p.QuantidadeDisponivel;
-                    return $"{p.Nome}" + new string(' ', 20 - p.Nome.Length) + $"{qtdeDisponivel}" + new string(' ', 7 - qtdeDisponivel.ToString().Length) + $"{p.Preco:c}";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Não foi possível escrever o produto na tela! {ex.Message}");
-                }
+                MessageBox.Show($"Não foi possível escrever o produto na tela! {ex.Message}");
+                return $"Não foi possível escrever o produto na tela! {ex.Message}";
             }
-            return "";
         }
 
         OrderItems GetItem()
         {
 
             pictureBox1.Visible = false;
-            if (string.IsNullOrEmpty(txtQuantity.Text) || Convert.ToInt32(txtQuantity.Text) <= 0)
-            {
-                throw new Exception("Quantidade inválida");
-            }
-            else
+            try
             {
                 Product p = DataBase.lista_produtos[lst_produtos.SelectedIndex];
                 var quantity = int.Parse(txtQuantity.Text);
@@ -140,6 +138,11 @@ namespace WindowsFormsApp1
                 lst_compras.Items.Add(WriteItemOrderScreen(item));
                 return item;
             }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         //void RemoveItem()
@@ -205,7 +208,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Customer null");
+                    MessageBox.Show($"Cliente informado vazio (nulo)");
                 }
             }
         }

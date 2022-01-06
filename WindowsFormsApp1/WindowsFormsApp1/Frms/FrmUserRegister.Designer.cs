@@ -43,6 +43,8 @@ namespace WindowsFormsApp1
             this.txtNome = new WindowsFormsApp1.Controls.txtLetter();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblData = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,7 +155,7 @@ namespace WindowsFormsApp1
             this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(60)))));
             this.btnRegister.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnRegister.Location = new System.Drawing.Point(54, 239);
+            this.btnRegister.Location = new System.Drawing.Point(54, 292);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(292, 32);
             this.btnRegister.TabIndex = 19;
@@ -170,11 +172,29 @@ namespace WindowsFormsApp1
             this.lblData.TabIndex = 20;
             this.lblData.Text = "Nascimento";
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(113, 228);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(215, 20);
+            this.txtEmail.TabIndex = 21;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(3, 228);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(63, 16);
+            this.lblEmail.TabIndex = 22;
+            this.lblEmail.Text = "label";
+            // 
             // FrmUserRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtNome);
@@ -186,7 +206,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblId);
             this.Name = "FrmUserRegister";
-            this.Size = new System.Drawing.Size(428, 274);
+            this.Size = new System.Drawing.Size(428, 327);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -208,5 +228,7 @@ namespace WindowsFormsApp1
         private Controls.txtLetter txtNome;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblEmail;
     }
 }

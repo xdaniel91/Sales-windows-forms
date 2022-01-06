@@ -6,6 +6,11 @@ using System.Collections.Generic;
 
 namespace WindowsFormsApp1
 {
+    public interface IOrderContract
+    {
+        List<Order> GetOrders();
+    }
+
     public enum OrderStatus
     {
         InProgress,
@@ -14,12 +19,17 @@ namespace WindowsFormsApp1
         Delivered
     }
 
-    public class Order
+    public class Order : IOrderContract
     {
+        public static IOrderContract Shared = new Order();
+
         public List<OrderItems> Items { get; private set; }
         public Person Customer { get; private set; }
         public OrderStatus Status { get; private set; }
 
+        private Order()
+        {
+        }
 
         public Order(Person customer)
         {
@@ -31,11 +41,12 @@ namespace WindowsFormsApp1
         {
             Items.Add(item);
         }
-        public void RemoveItem(OrderItems item)
+
+        public void IncluirLista()
         {
-            Items.Remove(item);
-            item.OrderProduto.AddQtdeDisponivel(item.Quantity);
+            DataBase.lista_order.Add(this);
         }
+
         public void FinalizeOrder()
         {
             if (Status != OrderStatus.InProgress) throw new Exception("Só é possível finalizar uma compra em progresso");
@@ -52,11 +63,6 @@ namespace WindowsFormsApp1
         {
             if (Status != OrderStatus.Processing) throw new Exception("Só é possível enviar um pedido que esteja processando");
             Status = OrderStatus.Delivered;
-        }
-
-        public override string ToString()
-        {
-            return $"{Customer.Nome} // {Status}";
         }
 
         #region "CRUD do Fichario"
@@ -119,5 +125,11 @@ namespace WindowsFormsApp1
             return JsonConvert.SerializeObject(unit);
         }
 
+        public List<Order> GetOrders()
+        {
+            var o = new Order();
+            var result = o.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders");
+            return result;
+        }
     }
 }

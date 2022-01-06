@@ -69,6 +69,12 @@
     <Compile Include="Frms\FrmFinalize.Designer.cs">
       <DependentUpon>FrmFinalize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frms\FrmListaCompras.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frms\FrmListaCompras.Designer.cs">
+      <DependentUpon>FrmListaCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frms\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frms\FrmFinalize.resx">
       <DependentUpon>FrmFinalize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frms\FrmListaCompras.resx">
+      <DependentUpon>FrmListaCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

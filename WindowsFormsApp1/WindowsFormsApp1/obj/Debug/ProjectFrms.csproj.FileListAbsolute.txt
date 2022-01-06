@@ -60,4 +60,4 @@ C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmChooseUser.resources
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmFinalize.resources
-C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Frms.FrmListaCompras.resources
