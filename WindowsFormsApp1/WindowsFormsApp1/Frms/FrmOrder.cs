@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btnIniciarCompra_Click(object sender, EventArgs e) // botão adicionar produto
+        private void btnIniciarCompra_Click(object sender, EventArgs e)
         {
             if (CurrentCustomer == null || CurrentOrder == null)
             { 
@@ -55,19 +55,16 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-
                     CurrentOrder.AddItem(GetItem());
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "TimeShare Soluções");
                 }
-
             }
         }
 
-        private void lst_produtos_DoubleClick(object sender, EventArgs e) // add w/ double click
+        private void lst_produtos_DoubleClick(object sender, EventArgs e)
         {
             if (CurrentOrder == null || CurrentCustomer == null) return;
 
@@ -85,7 +82,7 @@ namespace WindowsFormsApp1
         {
             if (CurrentOrder != null)
             {
-                CurrentOrder.FinalizeOrder(); // status = orderPlaced
+                CurrentOrder.FinalizeOrder();
                 try
                 {
                     CurrentOrder.IncluirFichario(Connection);
@@ -94,7 +91,7 @@ namespace WindowsFormsApp1
                     lblCustomer.Visible = false;
                     lblTotal.Text = $"{0:c}";
                     var frm = new FrmFinalize();
-                    frm.ShowDialog(); //abre o "cupom"
+                    frm.ShowDialog();
 
                     CurrentOrder = null;
                     CurrentCustomer = null;
@@ -102,8 +99,7 @@ namespace WindowsFormsApp1
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "TimeShare Soluções");
-                }
-               
+                }            
             }
             else
             {
@@ -124,8 +120,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var qtdeDisponivel = p.QuantidadeDisponivel;
-                return $"{p.Nome}" + new string(' ', 20 - p.Nome.Length) + $"{qtdeDisponivel}" + new string(' ', 7 - qtdeDisponivel.ToString().Length) + $"{p.Preco:c}";
+                return $"{p.Nome}" + new string(' ', 20 - p.Nome.Length) + $"{p.QuantidadeDisponivel}" + new string(' ', 7 - p.QuantidadeDisponivel.ToString().Length) + $"{p.Preco:c}";
             }
             catch (Exception ex)
             {
@@ -136,7 +131,6 @@ namespace WindowsFormsApp1
 
         OrderItems GetItem()
         {
-
             pictureBox1.Visible = false;
             try
             {

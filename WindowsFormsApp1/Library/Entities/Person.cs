@@ -29,8 +29,9 @@ namespace Library.Classes
         [Required(ErrorMessage = "Campo Cpf obrigatório")]
         public string Cpf { get; set; }
 
+       // [JsonProperty]
         [Required(ErrorMessage = "Campo Email obrigatório")]
-        public string Email { get; private set; }
+        public string Email { get;  set; }
 
         [Required(ErrorMessage = "Campo data de nascimento obrigatório")]
         public DateTime BirthDate { get; set; }

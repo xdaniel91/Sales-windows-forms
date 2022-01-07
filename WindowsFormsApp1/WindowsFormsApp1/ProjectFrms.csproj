@@ -63,6 +63,12 @@
     <Compile Include="Frms\FrmChooseUser.Designer.cs">
       <DependentUpon>FrmChooseUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frms\FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frms\FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frms\FrmFinalize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="Frms\FrmChooseUser.resx">
       <DependentUpon>FrmChooseUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frms\FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frms\FrmFinalize.resx">
       <DependentUpon>FrmFinalize.cs</DependentUpon>

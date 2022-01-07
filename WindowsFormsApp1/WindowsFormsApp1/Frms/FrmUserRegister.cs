@@ -19,6 +19,9 @@ namespace WindowsFormsApp1
             lblData.Text = "Nascimento";
             btnRegister.Text = "Confirmar";
             lblEmail.Text = "Email";
+            txtCpf.MaxLength = 11;
+            txtId.MaxLength = 4;
+            txtNome.MaxLength = 20;
         }
 
         Person ReadFrm()
@@ -42,7 +45,6 @@ namespace WindowsFormsApp1
                 throw;
             }
         }
-
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {

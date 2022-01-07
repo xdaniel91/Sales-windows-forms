@@ -12,14 +12,15 @@ namespace WindowsFormsApp1
             InitializeComponent();
             btnIniciarCompra.Text = "Iniciar compra";
             BtnRegisterProduct.Text = "Registrar produto";
-            btnUserRegister.Text = "Registrar usuário";
+            btnUserRegister.Text = "Registrar cliente";
+            btnListaClientes.Text = "Lista de clientes";
             panel1.Enabled = false;
             panel1.Visible = false;
             Utils.FeedLists();
             btnCompras.Text = "Lista de compras";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnListaCompras_Click(object sender, EventArgs e)
         {
             var frm = new FrmOrder();
             var tb = new TabPage();
@@ -30,7 +31,7 @@ namespace WindowsFormsApp1
             tbc_app.SelectedTab = tb;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegistroProduto_Click(object sender, EventArgs e)
         {
             var frm = new FrmRegisterProduct();
             var tb = new TabPage();
@@ -62,19 +63,15 @@ namespace WindowsFormsApp1
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox1.Cursor = Cursors.Hand;
+            picbox_Menu.Cursor = Cursors.Hand;
         }
 
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnRegistroCliente_Click(object sender, EventArgs e)
         {
             var frm = new FrmUserRegister();
             var tb = new TabPage();
-            tb.Name = "Registro de usuários";
-            tb.Text = "Registro de usuários";
+            tb.Name = "Registro de cliente";
+            tb.Text = "Registro de cliente";
             tb.Controls.Add(frm);
             tbc_app.Controls.Add(tb);
             tbc_app.SelectedTab = tb;
@@ -96,7 +93,12 @@ namespace WindowsFormsApp1
                 tbc_app.Controls.Add(tb);
                 tbc_app.SelectedTab = tb;
             }
+        }
 
+        private void btnListaClientes_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmClientes();
+            frm.Show();
         }
     }
 }
