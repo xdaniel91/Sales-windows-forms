@@ -6,8 +6,8 @@ namespace WindowsFormsApp1
 {
     public partial class FrmOrder : UserControl
     {
-        string Connection = "C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioOrders";
-        //string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders";
+
+        string Connection = "C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioOrders";
         Person CurrentCustomer = null;
         Order CurrentOrder = null;
 
@@ -17,8 +17,8 @@ namespace WindowsFormsApp1
             btnQuantidade.Text = "Aidiconar";
             btnFinzaliar.Text = "Finalizar";
             lblQuantidade.Text = "Quantidade";
+            btnSelectUser.Text = "Escolher um cliente";
             txtQuantity.Text = "0";
-            btnExcluir.Text = "Excluir";
             WriteProductsScreen();
             lblTotal.Text = $"{0:c}";
             lblCustomer.Visible = false;
@@ -91,6 +91,7 @@ namespace WindowsFormsApp1
                     CurrentOrder.IncluirFichario(Connection);
                     CurrentOrder.IncluirLista();
                     lst_compras.Items.Clear();
+                    lblCustomer.Visible = false;
                     lblTotal.Text = $"{0:c}";
                     var frm = new FrmFinalize();
                     frm.ShowDialog(); //abre o "cupom"
@@ -200,25 +201,33 @@ namespace WindowsFormsApp1
 
         private void button1_Click_1(object sender, EventArgs e) // botão de criar order / selecionar customer
         {
-            var frm = new FrmChooseUser();
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
+            if (CurrentCustomer != null)
             {
-                CurrentCustomer = frm.CustomerChosen;
+                MessageBox.Show("Já existe um cliente selecionado.", "TimeShare Soluções");
+            }
+            else
+            {
+                var frm = new FrmChooseUser();
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    CurrentCustomer = frm.CustomerChosen;
 
-                if (CurrentCustomer != null)
-                {
-                    var order = new Order(CurrentCustomer); // status = in progress
-                    CurrentOrder = order;
-                    lblCustomer.Visible = true;
-                    pictureBox1.Visible = true;
-                    lblCustomer.Text = $"Bem-vindo {CurrentCustomer.Nome}";
-                }
-                else
-                {
-                    MessageBox.Show($"Cliente informado vazio (nulo)");
+                    if (CurrentCustomer != null)
+                    {
+                        var order = new Order(CurrentCustomer); // status = in progress
+                        CurrentOrder = order;
+                        lblCustomer.Visible = true;
+                        pictureBox1.Visible = true;
+                        lblCustomer.Text = $"Bem-vindo {CurrentCustomer.Nome}";
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Cliente informado vazio (nulo)");
+                    }
                 }
             }
+            
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

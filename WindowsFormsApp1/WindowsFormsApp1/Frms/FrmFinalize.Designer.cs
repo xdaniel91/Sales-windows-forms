@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.lblCustomer.Location = new System.Drawing.Point(9, 85);
             this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(224, 31);
+            this.lblCustomer.Size = new System.Drawing.Size(436, 31);
             this.lblCustomer.TabIndex = 3;
             this.lblCustomer.Text = "label1";
             this.lblCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
             this.lblStatus.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(9, 27);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(58, 31);
+            this.lblStatus.Size = new System.Drawing.Size(436, 31);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "label1";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

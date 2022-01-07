@@ -36,3 +36,4 @@ C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Deb
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.dll
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete

@@ -83,3 +83,5 @@ C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\source\repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.SuggestedBindingRedirects.cache
+C:\Users\DanielRodriguesCarva\source\repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete

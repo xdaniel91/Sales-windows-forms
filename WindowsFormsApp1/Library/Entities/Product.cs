@@ -187,8 +187,8 @@ namespace WindowsFormsApp1
         public List<Product> GetProducts()
         {
             var p = new Product();
-            //var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioProducts");
-            var result = p.BuscarFicharioTodos("C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioProducts");
+            var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioProducts");
+            //var result = p.BuscarFicharioTodos("C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioProducts");
             return result;
         }
     }

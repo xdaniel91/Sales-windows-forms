@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -19,12 +18,12 @@ namespace WindowsFormsApp1
             double total = 0;
 
             lblCustomer.Text = $"Cliente: {order.Customer}";
-            lblStatus.Text = order.Status.ToString();
+            lblStatus.Text = $"Status: {order.Status}";
             foreach (var item in order.Items)
             {
                 total = total + item.TotalValue;
 
-                lst_principal.Items.Add($"produto: {item.OrderProduto.Nome} | qtd: {item.Quantity} | total: {item.TotalValue}");
+                lst_principal.Items.Add($"Produto: {item.OrderProduto.Nome}  |  Quantidade: {item.Quantity} |  Total: {item.TotalValue}");
             }
 
             lblTotal.Text = $"Total {total:c}";

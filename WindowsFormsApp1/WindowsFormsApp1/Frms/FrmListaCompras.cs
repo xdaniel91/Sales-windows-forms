@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1.Frms
@@ -29,6 +22,10 @@ namespace WindowsFormsApp1.Frms
 
         void GetOrder()
         {
+            if (lst_orders.SelectedIndex == -1)
+            {
+                return;
+            }
             Order o = DataBase.lista_order[lst_orders.SelectedIndex];
             OrderSelect = o;
         }
@@ -48,11 +45,13 @@ namespace WindowsFormsApp1.Frms
             
         }
 
-        private void DoubleClick(object sender, EventArgs e)
+        private new void DoubleClick(object sender, EventArgs e)
         {
             lst_infos.Items.Clear();
             GetOrder();
             GetInfos(OrderSelect);
+            lblCustomer.Text = $"Cliente: {OrderSelect.Customer.Nome}";
+            lblStatus.Text = $"Status da compra: {OrderSelect.Status}";
         }
     }
 }

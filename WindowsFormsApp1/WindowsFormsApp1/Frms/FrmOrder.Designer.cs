@@ -35,7 +35,6 @@ namespace WindowsFormsApp1
             this.lst_compras = new System.Windows.Forms.ListBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnQuantidade = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnFinzaliar = new System.Windows.Forms.Button();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -106,32 +105,17 @@ namespace WindowsFormsApp1
             this.btnQuantidade.UseVisualStyleBackColor = true;
             this.btnQuantidade.Click += new System.EventHandler(this.btnIniciarCompra_Click);
             // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(433, 478);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(105, 31);
-            this.btnExcluir.TabIndex = 4;
-            this.btnExcluir.Text = "button2";
-            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
             // btnFinzaliar
             // 
             this.btnFinzaliar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnFinzaliar.BackColor = System.Drawing.Color.Transparent;
             this.btnFinzaliar.Image = ((System.Drawing.Image)(resources.GetObject("btnFinzaliar.Image")));
             this.btnFinzaliar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinzaliar.Location = new System.Drawing.Point(651, 478);
+            this.btnFinzaliar.Location = new System.Drawing.Point(430, 483);
             this.btnFinzaliar.Name = "btnFinzaliar";
-            this.btnFinzaliar.Size = new System.Drawing.Size(105, 31);
+            this.btnFinzaliar.Size = new System.Drawing.Size(323, 31);
             this.btnFinzaliar.TabIndex = 5;
             this.btnFinzaliar.Text = "button3";
-            this.btnFinzaliar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFinzaliar.UseVisualStyleBackColor = false;
             this.btnFinzaliar.Click += new System.EventHandler(this.btnFinzaliar_Click);
             // 
@@ -159,7 +143,6 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.lst_compras);
             this.panel1.Controls.Add(this.lblTotal);
             this.panel1.Controls.Add(this.btnFinzaliar);
-            this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Location = new System.Drawing.Point(7, -2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(778, 514);
@@ -276,7 +259,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.ListBox lst_compras;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnQuantidade;
-        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnFinzaliar;
         private System.Windows.Forms.Label lblQuantidade;
         private Controls.txtInt txtQuantity;

@@ -20,7 +20,6 @@ namespace WindowsFormsApp1.Controls
             {
                 this.Text = "";
                 MessageBox.Show("Valor inválido");
-
             }
         }
 

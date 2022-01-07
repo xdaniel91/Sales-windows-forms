@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
         public FrmMain()
         {
             InitializeComponent();
-            btnListaCompras.Text = "Compras";
+            btnIniciarCompra.Text = "Iniciar compra";
             BtnRegisterProduct.Text = "Registrar produto";
             btnUserRegister.Text = "Registrar usuário";
             panel1.Enabled = false;
@@ -99,7 +99,4 @@ namespace WindowsFormsApp1
 
         }
     }
-
-
-
 }

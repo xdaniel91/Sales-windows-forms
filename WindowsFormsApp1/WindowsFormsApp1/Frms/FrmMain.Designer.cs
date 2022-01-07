@@ -30,30 +30,30 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.btnListaCompras = new System.Windows.Forms.Button();
+            this.btnIniciarCompra = new System.Windows.Forms.Button();
             this.tbc_app = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.btnUserRegister = new System.Windows.Forms.Button();
             this.BtnRegisterProduct = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCompras = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnListaCompras
+            // btnIniciarCompra
             // 
-            this.btnListaCompras.BackColor = System.Drawing.Color.Turquoise;
-            this.btnListaCompras.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListaCompras.Location = new System.Drawing.Point(0, 52);
-            this.btnListaCompras.Name = "btnListaCompras";
-            this.btnListaCompras.Size = new System.Drawing.Size(81, 43);
-            this.btnListaCompras.TabIndex = 1;
-            this.btnListaCompras.Text = "button2";
-            this.btnListaCompras.UseVisualStyleBackColor = false;
-            this.btnListaCompras.Click += new System.EventHandler(this.button2_Click);
+            this.btnIniciarCompra.BackColor = System.Drawing.Color.Turquoise;
+            this.btnIniciarCompra.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciarCompra.Location = new System.Drawing.Point(0, 52);
+            this.btnIniciarCompra.Name = "btnIniciarCompra";
+            this.btnIniciarCompra.Size = new System.Drawing.Size(81, 43);
+            this.btnIniciarCompra.TabIndex = 1;
+            this.btnIniciarCompra.Text = "button2";
+            this.btnIniciarCompra.UseVisualStyleBackColor = false;
+            this.btnIniciarCompra.Click += new System.EventHandler(this.button2_Click);
             // 
             // tbc_app
             // 
@@ -74,11 +74,23 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.btnCompras);
             this.panel1.Controls.Add(this.btnUserRegister);
             this.panel1.Controls.Add(this.BtnRegisterProduct);
-            this.panel1.Controls.Add(this.btnListaCompras);
+            this.panel1.Controls.Add(this.btnIniciarCompra);
             this.panel1.Location = new System.Drawing.Point(1, 57);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(82, 752);
             this.panel1.TabIndex = 3;
+            // 
+            // btnCompras
+            // 
+            this.btnCompras.BackColor = System.Drawing.Color.Turquoise;
+            this.btnCompras.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.Location = new System.Drawing.Point(0, 150);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(81, 43);
+            this.btnCompras.TabIndex = 4;
+            this.btnCompras.Text = "button2";
+            this.btnCompras.UseVisualStyleBackColor = false;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnUserRegister
             // 
@@ -144,18 +156,6 @@ namespace WindowsFormsApp1
             this.label1.Text = "TimeShare Soluções";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnCompras
-            // 
-            this.btnCompras.BackColor = System.Drawing.Color.Turquoise;
-            this.btnCompras.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompras.Location = new System.Drawing.Point(0, 150);
-            this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Size = new System.Drawing.Size(81, 43);
-            this.btnCompras.TabIndex = 4;
-            this.btnCompras.Text = "button2";
-            this.btnCompras.UseVisualStyleBackColor = false;
-            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,7 +177,7 @@ namespace WindowsFormsApp1
 
         #endregion
 
-        private System.Windows.Forms.Button btnListaCompras;
+        private System.Windows.Forms.Button btnIniciarCompra;
         private System.Windows.Forms.TabControl tbc_app;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnRegisterProduct;

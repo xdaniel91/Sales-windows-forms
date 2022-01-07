@@ -407,8 +407,7 @@ namespace Library.Classes
         public List<Person> GetFichario()
         {
             var p = new Person();
-            // var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers");
-            var result = p.BuscarFicharioTodos("C:\\Users\\xdani\\OneDrive\\Documentos\\FicharioCustomers");
+            var result = p.BuscarFicharioTodos("C:\\Users\\DanielRodriguesCarva\\Documents\\FicharioCustomers");
             return result;
         }
     }
