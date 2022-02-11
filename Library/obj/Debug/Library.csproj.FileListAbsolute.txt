@@ -1,0 +1,77 @@
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\bin\Debug\Library.dll.config
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\bin\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\bin\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\bin\Debug\Library.dll.config
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\bin\Debug\Library.dll
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\bin\Debug\Library.pdb
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.dll
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\Library\obj\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.dll.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.dll.config
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.dll
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Library.pdb
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.dll
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\Library\obj\Debug\Library.csproj.CopyComplete
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Library.dll.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.csproj.CopyComplete
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Npgsql.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Buffers.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Collections.Immutable.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Memory.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Text.Json.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Threading.Channels.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.ValueTuple.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Npgsql.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Buffers.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Collections.Immutable.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Memory.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Text.Json.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Threading.Channels.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.ValueTuple.xml

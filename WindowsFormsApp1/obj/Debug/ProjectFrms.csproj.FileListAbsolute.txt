@@ -1,0 +1,137 @@
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmMain.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrder.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmRegisterProduct.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.GenerateResource.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmUserRegister.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmMain.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrder.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmRegisterProduct.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmUserRegister.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.GenerateResource.cache
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll.config
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmChooseUser.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmFinalize.resources
+C:\Users\DanielRodriguesCarva\source\repos\Projeto Forms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.pdb
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll.config
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.AssemblyReference.cache
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmChooseUser.resources
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmFinalize.resources
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmMain.resources
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrder.resources
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmRegisterProduct.resources
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmUserRegister.resources
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.GenerateResource.cache
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CoreCompileInputs.cache
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\xdani\source\repos\OrderAnalise\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmChooseUser.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmFinalize.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Frms.FrmListaCompras.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.pdb
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Library.dll.config
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.AssemblyReference.cache
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmChooseUser.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmFinalize.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Frms.FrmListaCompras.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmMain.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrder.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmRegisterProduct.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmUserRegister.resources
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.GenerateResource.cache
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CoreCompileInputs.cache
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\xdani\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\source\repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.SuggestedBindingRedirects.cache
+C:\Users\DanielRodriguesCarva\source\repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete
+C:\Users\DanielRodriguesCarva\source\repos\SystemOrderWinForms\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Frms.FrmClientes.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.AssemblyReference.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.SuggestedBindingRedirects.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmChooseUser.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmFinalize.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Frms.FrmListaCompras.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmMain.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmOrder.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmRegisterProduct.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmUserRegister.resources
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.GenerateResource.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CoreCompileInputs.cache
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Library.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Library.pdb
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Library.dll.config
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\obj\Debug\ProjectFrms.csproj.CopyComplete
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Npgsql.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Buffers.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Collections.Immutable.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Memory.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Text.Json.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Threading.Channels.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.ValueTuple.dll
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\Npgsql.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Buffers.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Collections.Immutable.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Memory.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Text.Json.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Threading.Channels.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\WindowsFormsApp1\bin\Debug\System.ValueTuple.xml
