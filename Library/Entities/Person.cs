@@ -87,20 +87,22 @@ namespace Library.Classes
             }
         }
 
-        void InsertCustomer(Person customer)
+        public bool InsertCustomer()
         {
-            customer.ValidaClasse();
-            customer.ValidaComplemento();
-            var nome = customer.Nome;
-            var nascimento = customer.BirthDate.ToString("dd/MM/yyyy").Replace('/', '-');
-            var cpf = customer.Cpf;
-            var email = customer.Email;
+            var nome = this.Nome;
+            var nascimento = this.BirthDate.ToString("dd/MM/yyyy").Replace('/', '-');
+            var cpf = this.Cpf;
+            var email = this.Email;
 
             Database postgre = new Database();
+            
             postgre.connection.Open();
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
             postgre.sql = $@"select * from clientes_insert('{nome}', '{nascimento}', '{cpf}', '{email}')";
             postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);       
             postgre.connection.Close();
+            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+            return result;
         }
 
     }

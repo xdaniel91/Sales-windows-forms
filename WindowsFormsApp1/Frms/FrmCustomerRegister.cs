@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     {
         Database postgre = new Database();
         int rowIndex = -1;
-
+        BackgroundWorker myBW = new BackgroundWorker();
         public FrmUserRegister()
         {
             InitializeComponent();
@@ -31,7 +31,6 @@ namespace WindowsFormsApp1
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
             if (rowIndex < 0)
             {
                 Insert();
@@ -56,7 +55,7 @@ namespace WindowsFormsApp1
         private void FrmUserRegister_Load(object sender, EventArgs e)
         {
             postgre.connection = new NpgsqlConnection(postgre.connectString);
-            BackgroundWorker myBW = new BackgroundWorker();
+           
             myBW.DoWork += (obj, args) => MySelect();
             myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
             myBW.RunWorkerAsync();
@@ -109,31 +108,41 @@ namespace WindowsFormsApp1
 
         private void Insert()
         {
-            bool result;
             try
             {
                 var p = ReadFrm();
                 p.ValidaClasse();
                 p.ValidaComplemento();
-
-                postgre.connection.Open();
-                postgre.sql = $@"select * from clientes_insert('{p.Nome}', '{p.BirthDate.ToString("dd/MM/yyyy").Replace('/', '-')}', '{p.Cpf}', '{p.Email}')";
-                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                result = (bool)postgre.sqlCommand.ExecuteScalar();
-                postgre.dt = new DataTable();
-                postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-                AlimentarDGV();
-                postgre.connection.Close();
-
+                var result = p.InsertCustomer();
                 if (result)
                 {
-                    MessageBox.Show("Cliente cadastrado com sucesso", "Timeshare soluções");
+                    MessageBox.Show("Cliente inserido com sucesso!");
                 }
                 else
                 {
-                    MessageBox.Show("Insert fail");
+                    MessageBox.Show("Não foi possível inserir o cliente!");
                 }
-               
+                
+
+                //postgre.connection.Open();
+                //postgre.sql = $@"select * from clientes_insert('{p.Nome}', '{p.BirthDate.ToString("dd/MM/yyyy").Replace('/', '-')}', '{p.Cpf}', '{p.Email}')";
+                //postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+                //result = (bool)postgre.sqlCommand.ExecuteScalar();
+                //postgre.connection.Close();
+                //postgre.dt = new DataTable();
+                //postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
+                //myBW.DoWork += (obj, args) => MySelect();
+                //myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
+                //myBW.RunWorkerAsync();
+
+                //if (result)
+                //{
+                //    MessageBox.Show("Cliente cadastrado com sucesso", "Timeshare soluções");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Insert fail");
+                //}
             }
             catch (Exception ex)
             {
@@ -160,7 +169,6 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-           
             if (rowIndex < 0) return;
             if (string.IsNullOrEmpty(txtCpf.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtNome.Text) || string.IsNullOrEmpty(msktxtData.Text)) return;
 
@@ -195,11 +203,11 @@ namespace WindowsFormsApp1
                 postgre.sqlCommand.Parameters.AddWithValue("_cpf", txtCpf.Text);
                 postgre.sqlCommand.Parameters.AddWithValue("_email", txtEmail.Text);
                 result = (bool)postgre.sqlCommand.ExecuteScalar();
-                postgre.dt = new DataTable();
-                postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-                AlimentarDGV();
                 postgre.connection.Close();
-                
+                myBW.DoWork += (obj, args) => MySelect();
+                myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
+                myBW.RunWorkerAsync();
+
                 if (result)
                 {
                     MessageBox.Show("Cliente alterado com sucesso", "Timeshare Soluções");
