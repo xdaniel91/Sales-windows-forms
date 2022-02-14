@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Library.BaseDados;
 using Newtonsoft.Json;
+using Npgsql;
 
 namespace WindowsFormsApp1
 {
-    public class Product 
+    public class Product
     {
         [Required(ErrorMessage = "Campo Nome obrigatório")]
         [StringLength(20, ErrorMessage = "O nome do produto deve ter no máximo 20 caracteres")]
@@ -58,6 +59,49 @@ namespace WindowsFormsApp1
         {
             return Nome;
         }
-      
+        
+        
+        #region CRUD
+
+        public void InsertProduct()
+        {
+            var preco = this.Preco.ToString().Replace(',', '.');
+
+            Database postgre = new Database();
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $"select * from produtos_insert('{this.Nome}', {preco}, {this.QuantidadeDisponivel})";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+            postgre.connection.Close();
+            if (!result) throw new Exception("Insert: false");
+        }
+
+        public void UpdateProduct(string id)
+        {
+            var preco = this.Preco.ToString().Replace(',', '.');
+
+            Database postgre = new Database();
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $@"select * from produtos_update({id}, '{this.Nome}', {preco}, {this.QuantidadeDisponivel});";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+            postgre.connection.Close();
+            if (!result) throw new Exception("Update: false");
+        }
+
+        public void DeleteProduct(string id)
+        {
+            Database postgre = new Database();
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $@"select * from produtos_delete({id});";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+            postgre.connection.Close();
+            if (!result) throw new Exception("Delete: false");
+        }
     }
+    #endregion
 }

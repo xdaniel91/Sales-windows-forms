@@ -21,7 +21,6 @@ namespace Library.Classes
         [Required(ErrorMessage = "Campo Cpf obrigatório")]
         public string Cpf { get; set; }
 
-       // [JsonProperty]
         [Required(ErrorMessage = "Campo Email obrigatório")]
         public string Email { get;  set; }
 
@@ -87,24 +86,47 @@ namespace Library.Classes
             }
         }
 
+        #region CRUD
         public bool InsertCustomer()
         {
-            var nome = this.Nome;
-            var nascimento = this.BirthDate.ToString("dd/MM/yyyy").Replace('/', '-');
-            var cpf = this.Cpf;
-            var email = this.Email;
-
-            Database postgre = new Database();
-            
-            postgre.connection.Open();
+            ValidaClasse();
+            ValidaComplemento();
+            var data = this.BirthDate.ToString("yyyy/MM/dd").Replace('/', '-');
             postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.sql = $@"select * from clientes_insert('{nome}', '{nascimento}', '{cpf}', '{email}')";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);       
-            postgre.connection.Close();
+            postgre.connection.Open();
+            postgre.sql = $@"select * from clientes_insert('{this.Nome}', '{data}', '{this.Cpf}', '{this.Email}');";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
             bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+            postgre.connection.Close();
             return result;
         }
 
+        public bool UpdateCustomer(string id)
+        {
+            ValidaClasse();
+            ValidaComplemento();
+            var data = this.BirthDate.ToString("yyyy/MM/dd").Replace('/', '-');
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $@"select * from clientes_update({id}, '{this.Nome}', '{data}', '{this.Cpf}', '{this.Email}');";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+            postgre.connection.Close();
+            return result;
+        }
+
+        static public bool DeleteCustomer(string id)
+        {
+            Database postgre = new Database();
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $@"select * from clientes_delete({id})";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+            postgre.connection.Close();
+            return result;
+        }
+        #endregion
     }
 }
 

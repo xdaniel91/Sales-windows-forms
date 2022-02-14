@@ -1,5 +1,4 @@
 ﻿using Library.BaseDados;
-using Library.Classes;
 using Npgsql;
 using System;
 using System.ComponentModel;
@@ -11,6 +10,7 @@ namespace WindowsFormsApp1
 {
     public partial class FrmRegisterProduct : UserControl
     {
+        BackgroundWorker myBW = new BackgroundWorker();
         Database postgre = new Database();
         int rowIndex = -1;
         public FrmRegisterProduct()
@@ -21,12 +21,30 @@ namespace WindowsFormsApp1
             lblPrice.Text = "Preço";
             lblQuantity.Text = "Quantidade";
             btnSalvar.Text = "Salvar";
-            btnDelete.Text = "Delte";
+            btnDelete.Text = "Excluir";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+           var dialog = MessageBox.Show("TEM CERTEZA QUE DESEJA EXCLUIR ESSE PRODUTO?", "Timeshare Soluções", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dialog == DialogResult.Cancel) return;
 
+            try
+            {
+                var id = dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString();
+                var produto = ReadFrm();
+                produto.DeleteProduct(id);
+                AtualizarGridEmBackground();
+            }
+            catch (ValidationException vex)
+            {
+                MessageBox.Show("Não foi possivel deletar o produto " + vex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Não foi possivel deletar o produto " + ex.Message);
+            }
         }
 
         Product ReadFrm()
@@ -39,37 +57,7 @@ namespace WindowsFormsApp1
             }
             catch (ValidationException)
             {
-
                 throw;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        void Insert()
-        {
-            bool result;
-            try
-            {
-                var p = ReadFrm();
-
-                postgre.connection.Open();
-                postgre.sql = $"select * from produtos_insert('{p.Nome}', {p.Preco.ToString().Replace(',', '.')}, {p.QuantidadeDisponivel})";
-                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                result = (bool)postgre.sqlCommand.ExecuteScalar();
-                postgre.connection.Close();
-                if (result == true)
-                {
-                    MessageBox.Show("Produto cadastrado com sucesso", "Timeshare soluções");
-                }
-                else
-                {
-                    MessageBox.Show("Insert fail ");
-                }
-               // MySelect();
-                AlimentarDGV();
             }
             catch (Exception)
             {
@@ -98,13 +86,17 @@ namespace WindowsFormsApp1
 
         private void FrmRegisterProduct_Load(object sender, EventArgs e)
         {
-            BackgroundWorker myBW = new BackgroundWorker();
+            AtualizarGridEmBackground();
+        }
+
+        void AtualizarGridEmBackground()
+        {
             myBW.DoWork += (obj, args) => MySelect();
-            myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
+            myBW.RunWorkerCompleted += (obj, args) => AtualizarGrid();
             myBW.RunWorkerAsync();
         }
 
-        void AlimentarDGV()
+        void AtualizarGrid()
         {
             dgv_products.DataSource = null; /* reset datagrid view */
             dgv_products.DataSource = postgre.dt;
@@ -112,16 +104,21 @@ namespace WindowsFormsApp1
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            bool result;
-
-            if (String.IsNullOrEmpty(txtMoeda.Text) || String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtQuantity.Text) || int.Parse(txtQuantity.Text) <= 0)
+          
+            if (String.IsNullOrEmpty(txtMoeda.Text)    ||
+                String.IsNullOrEmpty(txtName.Text)     || 
+                String.IsNullOrEmpty(txtQuantity.Text) || 
+                int.Parse(txtQuantity.Text) <= 0)
                 return;
 
             if (rowIndex < 0)
             {
                 try
                 {
-                    Insert();
+                    var produto = ReadFrm();
+                    produto.InsertProduct();
+                    AtualizarGridEmBackground();
+                    MessageBox.Show("Produto incluido com sucesso", "Timeshare Soluções");
                 }
                 catch (ValidationException vex)
                 {
@@ -136,37 +133,19 @@ namespace WindowsFormsApp1
             else  /* update */
             {
                 try
-                {
-                    postgre.connection.Open();
+                {    
                     var id = dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString();
-                    var obj = ReadFrm();
-                    postgre.sql = $@"select * from produtos_update({id}, '{obj.Nome}', {obj.Preco.ToString().Replace(',','.')}, {obj.QuantidadeDisponivel});";
-                    postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                   
-                    postgre.sqlCommand.Parameters.AddWithValue("_nome", txtName.Text);
-                    postgre.sqlCommand.Parameters.AddWithValue("_preco", txtMoeda.Text);
-                    postgre.sqlCommand.Parameters.AddWithValue("_quantidade", txtQuantity.Text);
-                    result = (bool)postgre.sqlCommand.ExecuteScalar();
-                    postgre.connection.Close();
-                    if (result)
-                    {
-                        MessageBox.Show("Produto alterado com sucesso", "Timeshare Soluções");
-                        MySelect();
-                        AlimentarDGV();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi possível alterar o produto");
-                    }
+                    var produto = ReadFrm();
+                    produto.UpdateProduct(id);
+                    AtualizarGridEmBackground();
+                    MessageBox.Show("Produto atualizado!", "TimeshareSoluções");
 
                 }
                 catch (Exception ex)
                 {
-                    postgre.connection.Close();
                     MessageBox.Show("Não foi possível alterar o produto. Error: " + ex.Message);
                 }
             }
-
         }
 
         private void dgv_products_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -186,5 +165,3 @@ namespace WindowsFormsApp1
         }
     }
 }
-
-

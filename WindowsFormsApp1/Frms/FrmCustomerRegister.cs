@@ -33,13 +33,27 @@ namespace WindowsFormsApp1
         {
             if (rowIndex < 0)
             {
-                Insert();
+                try
+                {
+                    Insert();
+                    MessageBox.Show("Cliente incluido", "Timeshare Soluções");
+
+                }
+                catch (ValidationException vex)
+                {
+                    MessageBox.Show(" (vex) Não foi possível inserir o cliente. Error: " + vex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" (ex) Não foi possível incluir o cliente. Error: " + ex.Message);
+                }          
             }
-            else 
+            else
             {
                 try
                 {
                     MyUpdate();
+                    MessageBox.Show("Cliente Atualizado", "Timeshare Soluções");
                 }
                 catch (ValidationException vex)
                 {
@@ -55,7 +69,6 @@ namespace WindowsFormsApp1
         private void FrmUserRegister_Load(object sender, EventArgs e)
         {
             postgre.connection = new NpgsqlConnection(postgre.connectString);
-           
             myBW.DoWork += (obj, args) => MySelect();
             myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
             myBW.RunWorkerAsync();
@@ -79,9 +92,9 @@ namespace WindowsFormsApp1
                 postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
                 postgre.connection.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("aqui "+ ex.Message);
+                throw;
             }
         }
 
@@ -111,42 +124,14 @@ namespace WindowsFormsApp1
             try
             {
                 var p = ReadFrm();
-                p.ValidaClasse();
-                p.ValidaComplemento();
                 var result = p.InsertCustomer();
-                if (result)
-                {
-                    MessageBox.Show("Cliente inserido com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível inserir o cliente!");
-                }
-                
-
-                //postgre.connection.Open();
-                //postgre.sql = $@"select * from clientes_insert('{p.Nome}', '{p.BirthDate.ToString("dd/MM/yyyy").Replace('/', '-')}', '{p.Cpf}', '{p.Email}')";
-                //postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                //result = (bool)postgre.sqlCommand.ExecuteScalar();
-                //postgre.connection.Close();
-                //postgre.dt = new DataTable();
-                //postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-                //myBW.DoWork += (obj, args) => MySelect();
-                //myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
-                //myBW.RunWorkerAsync();
-
-                //if (result)
-                //{
-                //    MessageBox.Show("Cliente cadastrado com sucesso", "Timeshare soluções");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Insert fail");
-                //}
+                AtualizarGridEmBackground();
+                if (!result) throw new Exception("Não foi possível incluir o cliente");
+     
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Insert fail. Error: " + ex.Message, "Timeshare Soluções");
+                throw;
             }
         }
 
@@ -183,36 +168,18 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Não foi possível deletar o cliente selecionado: Error: " + ex.Message);
             }
         }
-
+       
         void MyUpdate()
         {
             try
             {
-                bool result;
                 var customer = ReadFrm();
                 customer.ValidaClasse();
                 customer.ValidaComplemento();
-                var id = dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString();
-                var data = customer.BirthDate.ToString("yyyy/MM/dd").Replace('/', '-');
-              
-                postgre.connection.Open(); 
-                postgre.sql = $@"select * from clientes_update({id}, '{customer.Nome}', '{data}', '{customer.Cpf}', '{customer.Email}');";
-                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                postgre.sqlCommand.Parameters.AddWithValue("_nome", txtNome.Text);
-                postgre.sqlCommand.Parameters.AddWithValue("_data", msktxtData.Text);
-                postgre.sqlCommand.Parameters.AddWithValue("_cpf", txtCpf.Text);
-                postgre.sqlCommand.Parameters.AddWithValue("_email", txtEmail.Text);
-                result = (bool)postgre.sqlCommand.ExecuteScalar();
-                postgre.connection.Close();
-                myBW.DoWork += (obj, args) => MySelect();
-                myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
-                myBW.RunWorkerAsync();
-
-                if (result)
-                {
-                    MessageBox.Show("Cliente alterado com sucesso", "Timeshare Soluções");
-
-                }
+                var id = dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString(); 
+                var result = customer.UpdateCustomer(id);
+                AtualizarGridEmBackground();
+                if (!result) throw new Exception("Não foi possivel atualizar o cliente");
             }
             catch (ValidationException)
             {
@@ -228,33 +195,22 @@ namespace WindowsFormsApp1
         {
             try
             {
-                bool result;
                 var id = dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString();
-
-                postgre.connection.Open();
-                postgre.sql = $@"select * from clientes_delete({id})";
-                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                result = (bool)postgre.sqlCommand.ExecuteScalar();
-                postgre.dt = new DataTable();
-                postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-                AlimentarDGV();
-                postgre.connection.Close();
-
-                if (result)
-                {
-                    MessageBox.Show("Cliente deletado com sucesso.", "Timeshare soluções");
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível deletar o cliente.", "Timeshare soluções");
-                }
-
+                var result = Person.DeleteCustomer(id);
+                AtualizarGridEmBackground();
+                if (!result) throw new Exception("Não foi possível deletar o cliente");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
+        }
+
+        void AtualizarGridEmBackground()
+        {
+            myBW.DoWork += (obj, args) => MySelect();
+            myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
+            myBW.RunWorkerAsync();
         }
     }
 }
