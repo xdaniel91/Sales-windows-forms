@@ -191,6 +191,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibraryDAO\LibraryDAO.csproj">
+      <Project>{E5056D5F-1026-4B3A-B504-C0A7F477F79D}</Project>
+      <Name>LibraryDAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Library\Library.csproj">
       <Project>{ed041c75-c800-41e7-99f3-9dda8bfe9525}</Project>
       <Name>Library</Name>

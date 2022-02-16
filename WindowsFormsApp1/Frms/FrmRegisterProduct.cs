@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
         BackgroundWorker myBW = new BackgroundWorker();
         Database postgre = new Database();
         int rowIndex = -1;
+
         public FrmRegisterProduct()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace WindowsFormsApp1
             try
             {
                 var p = new Product(txtName.Text, Convert.ToDouble(txtMoeda.Text), Convert.ToInt32(txtQuantity.Text));
+
                 p.ValidaClasse();
                 return p;
             }
@@ -98,7 +100,7 @@ namespace WindowsFormsApp1
 
         void AtualizarGrid()
         {
-            dgv_products.DataSource = null; /* reset datagrid view */
+            dgv_products.DataSource = null;
             dgv_products.DataSource = postgre.dt;
         }
 
@@ -130,7 +132,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show($"Não foi possível adicionar o produto! {ex.Message}", "TimeShare Soluções");
                 }
             }
-            else  /* update */
+            else 
             {
                 try
                 {    

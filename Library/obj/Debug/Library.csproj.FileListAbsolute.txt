@@ -42,7 +42,6 @@ C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Library.pdb
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Newtonsoft.Json.dll
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\Newtonsoft.Json.xml
-C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.csproj.AssemblyReference.cache
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.csproj.CopyComplete
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.dll
@@ -75,3 +74,4 @@ C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Threading.Channels.xml
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\bin\Debug\System.ValueTuple.xml
+C:\Users\DanielRodriguesCarva\Source\Repos\SystemOrderWinForms\Library\obj\Debug\Library.csproj.AssemblyReference.cache

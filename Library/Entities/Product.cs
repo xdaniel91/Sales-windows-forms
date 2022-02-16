@@ -55,11 +55,11 @@ namespace WindowsFormsApp1
             QuantidadeDisponivel -= qtde;
         }
 
-        public override string ToString()
+        public static implicit operator Product(string produto)
         {
-            return Nome;
+            string[] data =  produto.Split(separator: '-');
+            return new Product { Nome = data[0], Preco = Convert.ToDouble(data[1]), QuantidadeDisponivel = Convert.ToInt32(data[2]) };
         }
-        
         
         #region CRUD
 
@@ -69,6 +69,7 @@ namespace WindowsFormsApp1
 
             Database postgre = new Database();
             postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Dispose();
             postgre.connection.Open();
             postgre.sql = $"select * from produtos_insert('{this.Nome}', {preco}, {this.QuantidadeDisponivel})";
             postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);

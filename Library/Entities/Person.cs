@@ -11,7 +11,6 @@ namespace Library.Classes
 
     public class Person
     {
-        Database postgre = new Database();
         public uint Id { get; set; }
         // infos pessoais
         [Required(ErrorMessage = "Campo nome obrigatório")]
@@ -41,10 +40,6 @@ namespace Library.Classes
             }
         }
 
-        public Person()
-        {
-        }
-
         public Person(string nome, DateTime birth, string cpf, string email)
         {
             Nome = nome;
@@ -53,6 +48,8 @@ namespace Library.Classes
 
             Cpf = cpf;
             Email = email;
+            ValidaComplemento();
+            ValidaClasse();
         }
 
         public override string ToString()
@@ -86,35 +83,14 @@ namespace Library.Classes
             }
         }
 
+        public object[] InformacoesTratadasParaEnviarProBanco()
+        {
+            object[] array = new object[] {this.Nome, this.Email, this.BirthDate.ToString(("yyyy/MM/dd").Replace('/', '-')), this.Cpf };
+            return array; 
+        }
+
         #region CRUD
-        public bool InsertCustomer()
-        {
-            ValidaClasse();
-            ValidaComplemento();
-            var data = this.BirthDate.ToString("yyyy/MM/dd").Replace('/', '-');
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.connection.Open();
-            postgre.sql = $@"select * from clientes_insert('{this.Nome}', '{data}', '{this.Cpf}', '{this.Email}');";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
-            postgre.connection.Close();
-            return result;
-        }
-
-        public bool UpdateCustomer(string id)
-        {
-            ValidaClasse();
-            ValidaComplemento();
-            var data = this.BirthDate.ToString("yyyy/MM/dd").Replace('/', '-');
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.connection.Open();
-            postgre.sql = $@"select * from clientes_update({id}, '{this.Nome}', '{data}', '{this.Cpf}', '{this.Email}');";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
-            postgre.connection.Close();
-            return result;
-        }
-
+      
         static public bool DeleteCustomer(string id)
         {
             Database postgre = new Database();

@@ -1,5 +1,6 @@
 ﻿using Library.BaseDados;
 using Library.Classes;
+using LibraryDAO;
 using Npgsql;
 using System;
 using System.ComponentModel;
@@ -12,7 +13,6 @@ namespace WindowsFormsApp1
 {
     public partial class FrmUserRegister : UserControl
     {
-        Database postgre = new Database();
         int rowIndex = -1;
         BackgroundWorker myBW = new BackgroundWorker();
         public FrmUserRegister()
@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
                 catch (Exception ex)
                 {
                     MessageBox.Show(" (ex) Não foi possível incluir o cliente. Error: " + ex.Message);
-                }          
+                }
             }
             else
             {
@@ -68,34 +68,9 @@ namespace WindowsFormsApp1
 
         private void FrmUserRegister_Load(object sender, EventArgs e)
         {
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            myBW.DoWork += (obj, args) => MySelect();
-            myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
+            myBW.DoWork += (obj, args) => DaoCustomer.SelectClientes();
+            myBW.RunWorkerCompleted += (obj, args) => DaoCustomer.AlimentarDGV(dgv_customers);
             myBW.RunWorkerAsync();
-        }
-
-        void AlimentarDGV()
-        {
-            dgv_customers.DataSource = null; /* reset datagrid view */
-            dgv_customers.DataSource = postgre.dt;
-        }
-
-        private void MySelect()
-        {
-            try
-            {
-                postgre.connection = new NpgsqlConnection(postgre.connectString);
-                postgre.connection.Open();
-                postgre.sql = @"select * from clientes_select()";
-                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                postgre.dt = new DataTable();
-                postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-                postgre.connection.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         private Person ReadFrm()
@@ -124,10 +99,8 @@ namespace WindowsFormsApp1
             try
             {
                 var p = ReadFrm();
-                var result = p.InsertCustomer();
+                DaoCustomer.InsertCustomer(p);
                 AtualizarGridEmBackground();
-                if (!result) throw new Exception("Não foi possível incluir o cliente");
-     
             }
             catch (Exception)
             {
@@ -168,18 +141,15 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Não foi possível deletar o cliente selecionado: Error: " + ex.Message);
             }
         }
-       
+
         void MyUpdate()
         {
             try
             {
                 var customer = ReadFrm();
-                customer.ValidaClasse();
-                customer.ValidaComplemento();
-                var id = dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString(); 
-                var result = customer.UpdateCustomer(id);
+                uint.TryParse(dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString(),  out uint id);
+                DaoCustomer.UpdateCustomer(customer.InformacoesTratadasParaEnviarProBanco(), id);
                 AtualizarGridEmBackground();
-                if (!result) throw new Exception("Não foi possivel atualizar o cliente");
             }
             catch (ValidationException)
             {
@@ -208,8 +178,8 @@ namespace WindowsFormsApp1
 
         void AtualizarGridEmBackground()
         {
-            myBW.DoWork += (obj, args) => MySelect();
-            myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
+            myBW.DoWork += (obj, args) => DaoCustomer.SelectClientes();
+            myBW.RunWorkerCompleted += (obj, args) => DaoCustomer.AlimentarDGV(dgv_customers);
             myBW.RunWorkerAsync();
         }
     }

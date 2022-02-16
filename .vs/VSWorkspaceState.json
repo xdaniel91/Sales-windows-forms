@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Library",
+    "\\Library\\Entities",
     "\\WindowsFormsApp1",
     "\\WindowsFormsApp1\\Frms"
   ],
-  "SelectedNode": "\\WindowsFormsApp1\\Frms\\FrmOrder.cs",
+  "SelectedNode": "\\Library\\Entities\\Product.cs",
   "PreviewInSolutionExplorer": false
 }
