@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="BaseDados\Database.cs" />
     <Compile Include="Entities\Enity.cs" />
+    <Compile Include="Entities\ItemDataBase.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderItems.cs" />
     <Compile Include="Entities\Product.cs" />

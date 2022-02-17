@@ -83,26 +83,11 @@ namespace Library.Classes
             }
         }
 
-        public object[] InformacoesTratadasParaEnviarProBanco()
+        public object[] InformacoesTratadasParaBancoDeDados()
         {
             object[] array = new object[] {this.Nome, this.Email, this.BirthDate.ToString(("yyyy/MM/dd").Replace('/', '-')), this.Cpf };
             return array; 
         }
-
-        #region CRUD
-      
-        static public bool DeleteCustomer(string id)
-        {
-            Database postgre = new Database();
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.connection.Open();
-            postgre.sql = $@"select * from clientes_delete({id})";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
-            postgre.connection.Close();
-            return result;
-        }
-        #endregion
     }
 }
 

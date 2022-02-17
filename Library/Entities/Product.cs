@@ -25,6 +25,7 @@ namespace WindowsFormsApp1
             Nome = nome;
             Preco = preco;
             QuantidadeDisponivel = quantidadeDisponivel;
+            ValidaClasse();
         }
         private Product()
         {
@@ -55,54 +56,11 @@ namespace WindowsFormsApp1
             QuantidadeDisponivel -= qtde;
         }
 
-        public static implicit operator Product(string produto)
+        public object[] InformacoesTratadasParaBancoDeDados()
         {
-            string[] data =  produto.Split(separator: '-');
-            return new Product { Nome = data[0], Preco = Convert.ToDouble(data[1]), QuantidadeDisponivel = Convert.ToInt32(data[2]) };
-        }
-        
-        #region CRUD
-
-        public void InsertProduct()
-        {
-            var preco = this.Preco.ToString().Replace(',', '.');
-
-            Database postgre = new Database();
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.connection.Dispose();
-            postgre.connection.Open();
-            postgre.sql = $"select * from produtos_insert('{this.Nome}', {preco}, {this.QuantidadeDisponivel})";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
-            postgre.connection.Close();
-            if (!result) throw new Exception("Insert: false");
-        }
-
-        public void UpdateProduct(string id)
-        {
-            var preco = this.Preco.ToString().Replace(',', '.');
-
-            Database postgre = new Database();
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.connection.Open();
-            postgre.sql = $@"select * from produtos_update({id}, '{this.Nome}', {preco}, {this.QuantidadeDisponivel});";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
-            postgre.connection.Close();
-            if (!result) throw new Exception("Update: false");
-        }
-
-        public void DeleteProduct(string id)
-        {
-            Database postgre = new Database();
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.connection.Open();
-            postgre.sql = $@"select * from produtos_delete({id});";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-            bool result = (bool)postgre.sqlCommand.ExecuteScalar();
-            postgre.connection.Close();
-            if (!result) throw new Exception("Delete: false");
+            object[] array = new object[] { this.Nome, this.Preco.ToString().Replace(',', '.'), this.QuantidadeDisponivel};
+            return array;
         }
     }
-    #endregion
+ 
 }

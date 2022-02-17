@@ -1,4 +1,5 @@
 ﻿using Library.BaseDados;
+using LibraryDAO;
 using Npgsql;
 using System;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ namespace WindowsFormsApp1
     public partial class FrmRegisterProduct : UserControl
     {
         BackgroundWorker myBW = new BackgroundWorker();
-        Database postgre = new Database();
+        DaoProduto daoProduto = new DaoProduto();
         int rowIndex = -1;
 
         public FrmRegisterProduct()
@@ -32,9 +33,8 @@ namespace WindowsFormsApp1
 
             try
             {
-                var id = dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString();
-                var produto = ReadFrm();
-                produto.DeleteProduct(id);
+                var id = Convert.ToUInt32(dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString());
+                daoProduto.Delete(id);
                 AtualizarGridEmBackground();
             }
             catch (ValidationException vex)
@@ -53,8 +53,6 @@ namespace WindowsFormsApp1
             try
             {
                 var p = new Product(txtName.Text, Convert.ToDouble(txtMoeda.Text), Convert.ToInt32(txtQuantity.Text));
-
-                p.ValidaClasse();
                 return p;
             }
             catch (ValidationException)
@@ -67,25 +65,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void MySelect()
-        {
-            try
-            {
-                postgre.connection = new NpgsqlConnection(postgre.connectString);
-                postgre.connection.Open();
-                postgre.sql = @"select * from produtos_select()";
-                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                postgre.dt = new DataTable();
-                postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-                postgre.connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void FrmRegisterProduct_Load(object sender, EventArgs e)
         {
             AtualizarGridEmBackground();
@@ -93,15 +72,9 @@ namespace WindowsFormsApp1
 
         void AtualizarGridEmBackground()
         {
-            myBW.DoWork += (obj, args) => MySelect();
-            myBW.RunWorkerCompleted += (obj, args) => AtualizarGrid();
+            myBW.DoWork += (obj, args) => daoProduto.Select();
+            myBW.RunWorkerCompleted += (obj, args) => daoProduto.AtualizarGrid(dgv_products);
             myBW.RunWorkerAsync();
-        }
-
-        void AtualizarGrid()
-        {
-            dgv_products.DataSource = null;
-            dgv_products.DataSource = postgre.dt;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -118,7 +91,7 @@ namespace WindowsFormsApp1
                 try
                 {
                     var produto = ReadFrm();
-                    produto.InsertProduct();
+                    daoProduto.Insert(produto);
                     AtualizarGridEmBackground();
                     MessageBox.Show("Produto incluido com sucesso", "Timeshare Soluções");
                 }
@@ -136,12 +109,12 @@ namespace WindowsFormsApp1
             {
                 try
                 {    
-                    var id = dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString();
+                    var id = Convert.ToUInt32(dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString());
                     var produto = ReadFrm();
-                    produto.UpdateProduct(id);
+                    var infos = produto.InformacoesTratadasParaBancoDeDados();
+                    daoProduto.Update(infos, id);
                     AtualizarGridEmBackground();
                     MessageBox.Show("Produto atualizado!", "TimeshareSoluções");
-
                 }
                 catch (Exception ex)
                 {

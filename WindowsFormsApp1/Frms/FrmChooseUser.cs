@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
 {
     public partial class FrmChooseUser : Form
     {
-        public Person CustomerChosen{ get; set; }
+        public Person CustomerChosen { get; set; }
         Database postgre = new Database();
         int rowIndex = -1;
 
@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
 
             var person = new Person(nome, Convert.ToDateTime(nascimento), cpf, email);
             person.Id = id;
-            CustomerChosen = person;    
+            CustomerChosen = person;
             DialogResult = DialogResult.OK;
         }
         void MySelect()

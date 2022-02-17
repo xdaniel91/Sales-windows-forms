@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
     {
         int rowIndex = -1;
         BackgroundWorker myBW = new BackgroundWorker();
+        DaoCustomer daoCustomer = new DaoCustomer();
         public FrmUserRegister()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    Insert();
+                    MyInsert();
                     MessageBox.Show("Cliente incluido", "Timeshare Soluções");
 
                 }
@@ -68,9 +69,7 @@ namespace WindowsFormsApp1
 
         private void FrmUserRegister_Load(object sender, EventArgs e)
         {
-            myBW.DoWork += (obj, args) => DaoCustomer.SelectClientes();
-            myBW.RunWorkerCompleted += (obj, args) => DaoCustomer.AlimentarDGV(dgv_customers);
-            myBW.RunWorkerAsync();
+            AtualizarGridEmBackground();
         }
 
         private Person ReadFrm()
@@ -94,12 +93,12 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void Insert()
+        private void MyInsert()
         {
             try
             {
-                var p = ReadFrm();
-                DaoCustomer.InsertCustomer(p);
+                var p = ReadFrm();              
+                daoCustomer.Insert(p);
                 AtualizarGridEmBackground();
             }
             catch (Exception)
@@ -148,7 +147,7 @@ namespace WindowsFormsApp1
             {
                 var customer = ReadFrm();
                 uint.TryParse(dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString(),  out uint id);
-                DaoCustomer.UpdateCustomer(customer.InformacoesTratadasParaEnviarProBanco(), id);
+                daoCustomer.Update(customer.InformacoesTratadasParaBancoDeDados(), id);
                 AtualizarGridEmBackground();
             }
             catch (ValidationException)
@@ -166,9 +165,9 @@ namespace WindowsFormsApp1
             try
             {
                 var id = dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString();
-                var result = Person.DeleteCustomer(id);
+                daoCustomer.Delete(Convert.ToUInt32(id));
                 AtualizarGridEmBackground();
-                if (!result) throw new Exception("Não foi possível deletar o cliente");
+
             }
             catch (Exception)
             {
@@ -178,8 +177,8 @@ namespace WindowsFormsApp1
 
         void AtualizarGridEmBackground()
         {
-            myBW.DoWork += (obj, args) => DaoCustomer.SelectClientes();
-            myBW.RunWorkerCompleted += (obj, args) => DaoCustomer.AlimentarDGV(dgv_customers);
+            myBW.DoWork += (obj, args) => daoCustomer.Select();
+            myBW.RunWorkerCompleted += (obj, args) => daoCustomer.AtualizarGrid(dgv_customers);
             myBW.RunWorkerAsync();
         }
     }

@@ -6,17 +6,20 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using LibraryDAO;
+using Library.Entities;
 
 namespace WindowsFormsApp1
 {
     public partial class FrmOrder : UserControl
     {
-
-        Database Postgre = new Database();
+        BackgroundWorker myBW = new BackgroundWorker();
+        DaoOrderItem daoItem = new DaoOrderItem();
         Person CurrentCustomer = null;
         Order CurrentOrder = null;
         OrderItems myItem = null;
         List<OrderItems> orderItems = new List<OrderItems>();
+
         int rowIndex = -1;
 
         public FrmOrder()
@@ -64,15 +67,18 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        var id = dgv_products.Rows[rowIndex].Cells["Id"].Value.ToString();
+                        var idProduto = Convert.ToUInt32(dgv_products.Rows[rowIndex].Cells["Id"].Value.ToString());
                         var nome = dgv_products.Rows[rowIndex].Cells["Produto"].Value.ToString();
                         var preco = dgv_products.Rows[rowIndex].Cells["Preço"].Value.ToString();
                         var quantidade = dgv_products.Rows[rowIndex].Cells["Quantidade disponivel"].Value.ToString();
                         var produto = new Product(nome, Convert.ToDouble(preco), Convert.ToInt32(quantidade));
                         var orderItem = new OrderItems(produto, quantity);
-                        orderItem.ProdutoId = Convert.ToUInt32(id);
+                        orderItem.ProdutoId = idProduto;
+
+                        var itemBanco = new ItemDataBase(quantity, produto.Preco, idProduto, CurrentCustomer.Id);
+                        daoItem.InsertItem(itemBanco);
+                        
                         myItem = orderItem;
-                        InsertOrdemItem();
                         orderItems.Add(orderItem);
                         RefreshScreen();
                     }
@@ -134,34 +140,14 @@ namespace WindowsFormsApp1
 
         private void FrmOrder_Load(object sender, EventArgs e)
         {
-            BackgroundWorker myBW = new BackgroundWorker();
-            myBW.DoWork += (obj, args) => MySelet();
-            myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
+            AtualizarGridEmBackground();
+        }
+
+        void AtualizarGridEmBackground()
+        {
+            myBW.DoWork += (obj, args) => daoItem.Select();
+            myBW.RunWorkerCompleted += (obj, args) => daoItem.AtualizarGrid(dgv_products);
             myBW.RunWorkerAsync();
-        }
-
-        void AlimentarDGV()
-        {
-            dgv_products.DataSource = null; /* reset datagrid view */
-            dgv_products.DataSource = Postgre.dt;
-        }
-
-        void MySelet()
-        {
-            try
-            {
-                Postgre.connection = new NpgsqlConnection(Postgre.connectString);
-                Postgre.connection.Open();
-                Postgre.sql = @"select pd_id as Id, pd_nome as Produto, pd_preco as Preço, pd_quantidade as ""Quantidade disponivel"" from produtos where pd_quantidade > 0";
-                Postgre.sqlCommand = new NpgsqlCommand(Postgre.sql, Postgre.connection);
-                Postgre.dt = new DataTable();
-                Postgre.dt.Load(Postgre.sqlCommand.ExecuteReader());
-                Postgre.connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void btnSelectUser_Click(object sender, EventArgs e)
@@ -189,16 +175,7 @@ namespace WindowsFormsApp1
         {
             rowIndex = e.RowIndex;
         }
-
-        void InsertOrdemItem()
-        {
-            Postgre.connection = new NpgsqlConnection(Postgre.connectString);
-            Postgre.connection.Open();
-            Postgre.sql = $@"select * from compra_item_insert({myItem.Quantity}::INTEGER, {myItem.TotalValue}::DECIMAL(10,2), {myItem.ProdutoId}::INTEGER, {CurrentCustomer.Id}::INTEGER)";
-            Postgre.sqlCommand = new NpgsqlCommand(Postgre.sql, Postgre.connection);
-            Postgre.dt = new DataTable();
-            Postgre.dt.Load(Postgre.sqlCommand.ExecuteReader());
-            Postgre.connection.Close();
-        }
     }
+
+
 }

@@ -15,11 +15,11 @@ namespace LibraryDAO
     {
         static void Main() { }
     }
-    public static class DaoCustomer
+    public  class DaoCustomer : DaoBase, IDaoEntities
     {
         static Database postgre = new Database();
-
-        public static void InsertCustomer(Person customer)
+       
+        public void Insert(dynamic customer)
         {
             try
             {
@@ -37,10 +37,44 @@ namespace LibraryDAO
 
                 throw;
             }
-
-
         }
-        public static void UpdateCustomer(object[] infos, uint id)
+        public void AtualizarGrid(DataGridView dgv)
+        {
+            dgv.DataSource = null;
+            dgv.DataSource = postgre.dt;
+        }
+        public void Select()
+        {
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = @"select * from clientes_select()";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            postgre.dt = new DataTable();
+            postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
+            postgre.connection.Close();
+        }
+
+        public void Delete(uint id)
+        {
+            try
+            {
+                Database postgre = new Database();
+                postgre.connection = new NpgsqlConnection(postgre.connectString);
+                postgre.connection.Open();
+                postgre.sql = $@"select * from clientes_delete({id})";
+                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+                bool result = (bool)postgre.sqlCommand.ExecuteScalar();
+                postgre.connection.Close();
+                if (!result) throw new Exception("Não foi possível inserir o cliente! by: DaoCustomer");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void Update(object[] infos, uint id)
         {
             try
             {
@@ -59,27 +93,8 @@ namespace LibraryDAO
             }
             catch (Exception)
             {
-
                 throw;
             }
-
-        }
-
-        public static void SelectClientes()
-        {
-            postgre.connection = new NpgsqlConnection(postgre.connectString);
-            postgre.connection.Open();
-            postgre.sql = @"select * from clientes_select()";
-            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-            postgre.dt = new DataTable();
-            postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-            postgre.connection.Close();
-        }
-
-        public static void AlimentarDGV(DataGridView table)
-        {
-            table.DataSource = null;
-            table.DataSource = postgre.dt;
         }
     }
 }
