@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
     public partial class FrmChooseUser : Form
     {
         public Person CustomerChosen { get; set; }
-        Database postgre = new Database();
+        LibraryDAO.DaoCustomer daoCustomers = new LibraryDAO.DaoCustomer();
         int rowIndex = -1;
 
         public FrmChooseUser()
@@ -23,54 +23,34 @@ namespace WindowsFormsApp1
         {
             if (rowIndex < 0) return;
 
-            var id = Convert.ToUInt32(dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString());
-            var nome = dgv_customers.Rows[rowIndex].Cells["_nome"].Value.ToString();
-            var cpf = dgv_customers.Rows[rowIndex].Cells["_cpf"].Value.ToString();
-            var email = dgv_customers.Rows[rowIndex].Cells["_email"].Value.ToString();
-            var nascimento = dgv_customers.Rows[rowIndex].Cells["_nascimento"].Value.ToString();
+            var id = Convert.ToUInt32(dgv_customers.Rows[rowIndex].Cells["id"].Value.ToString());
+            var nome = dgv_customers.Rows[rowIndex].Cells["nome"].Value.ToString();
+            var cpf = dgv_customers.Rows[rowIndex].Cells["cpf"].Value.ToString();
+            var email = dgv_customers.Rows[rowIndex].Cells["email"].Value.ToString();
+            var nascimento = dgv_customers.Rows[rowIndex].Cells["nascimento"].Value.ToString();
 
             var person = new Person(nome, Convert.ToDateTime(nascimento), cpf, email);
             person.Id = id;
             CustomerChosen = person;
             DialogResult = DialogResult.OK;
         }
-        void MySelect()
-        {
-            try
-            {
-                postgre.connection = new NpgsqlConnection(postgre.connectString);
-                postgre.connection.Open();
-                postgre.sql = @"select * from clientes_select()";
-                postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
-                postgre.dt = new DataTable();
-                postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
-                postgre.connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        void AlimentarDGV()
-        {
-            dgv_customers.DataSource = null; /* reset datagrid view */
-            dgv_customers.DataSource = postgre.dt;
-        }
 
         private void FrmChooseUser_Load(object sender, EventArgs e)
         {
-            BackgroundWorker myBW = new BackgroundWorker();
-            myBW.DoWork += (obj, args) => MySelect();
-            myBW.RunWorkerCompleted += (obj, args) => AlimentarDGV();
-            myBW.RunWorkerAsync();
-
+            AtualizarGridEmBackground();
         }
 
         private void dgv_products_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex;
+        }
+
+        private void AtualizarGridEmBackground()
+        {
+            BackgroundWorker myBW = new BackgroundWorker();
+            myBW.DoWork += (obj, args) => daoCustomers.Select();
+            myBW.RunWorkerCompleted += (obj, args) => daoCustomers.AtualizarGrid(dgv_customers);
+            myBW.RunWorkerAsync();
         }
     }
 }

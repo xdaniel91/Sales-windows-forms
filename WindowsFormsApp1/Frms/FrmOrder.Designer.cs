@@ -41,12 +41,12 @@ namespace WindowsFormsApp1
             this.dgv_products = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtQuantity = new WindowsFormsApp1.Controls.txtInt();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelectUser = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.txtQuantity = new WindowsFormsApp1.Controls.txtInt();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
             this.btnQuantidade.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnQuantidade.Image = ((System.Drawing.Image)(resources.GetObject("btnQuantidade.Image")));
             this.btnQuantidade.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuantidade.Location = new System.Drawing.Point(256, 2);
+            this.btnQuantidade.Location = new System.Drawing.Point(277, 2);
             this.btnQuantidade.Name = "btnQuantidade";
             this.btnQuantidade.Size = new System.Drawing.Size(82, 31);
             this.btnQuantidade.TabIndex = 3;
@@ -98,7 +98,7 @@ namespace WindowsFormsApp1
             // 
             this.lblQuantidade.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblQuantidade.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantidade.Location = new System.Drawing.Point(1, 8);
+            this.lblQuantidade.Location = new System.Drawing.Point(22, 8);
             this.lblQuantidade.Name = "lblQuantidade";
             this.lblQuantidade.Size = new System.Drawing.Size(132, 23);
             this.lblQuantidade.TabIndex = 7;
@@ -139,10 +139,10 @@ namespace WindowsFormsApp1
             this.dgv_products.AllowUserToDeleteRows = false;
             this.dgv_products.AllowUserToOrderColumns = true;
             this.dgv_products.AllowUserToResizeRows = false;
-            this.dgv_products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgv_products.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv_products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_products.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgv_products.BackgroundColor = System.Drawing.Color.Azure;
             this.dgv_products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_products.ColumnHeadersVisible = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Azure;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,7 +158,7 @@ namespace WindowsFormsApp1
             this.dgv_products.ReadOnly = true;
             this.dgv_products.RowHeadersVisible = false;
             this.dgv_products.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_products.Size = new System.Drawing.Size(340, 254);
+            this.dgv_products.Size = new System.Drawing.Size(363, 254);
             this.dgv_products.TabIndex = 25;
             this.dgv_products.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_products_CellClick);
             // 
@@ -181,8 +181,17 @@ namespace WindowsFormsApp1
             this.panel2.Controls.Add(this.btnQuantidade);
             this.panel2.Location = new System.Drawing.Point(12, 423);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 47);
+            this.panel2.Size = new System.Drawing.Size(363, 47);
             this.panel2.TabIndex = 15;
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtQuantity.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Location = new System.Drawing.Point(170, 8);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(48, 22);
+            this.txtQuantity.TabIndex = 8;
             // 
             // lblCustomer
             // 
@@ -237,19 +246,10 @@ namespace WindowsFormsApp1
             this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label1.Location = new System.Drawing.Point(12, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 23);
+            this.label1.Size = new System.Drawing.Size(363, 23);
             this.label1.TabIndex = 10;
             this.label1.Text = "Produtos disponíveis";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtQuantity.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(149, 8);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(48, 22);
-            this.txtQuantity.TabIndex = 8;
             // 
             // FrmOrder
             // 

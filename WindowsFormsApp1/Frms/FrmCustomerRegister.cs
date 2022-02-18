@@ -38,6 +38,8 @@ namespace WindowsFormsApp1
                 {
                     MyInsert();
                     MessageBox.Show("Cliente incluido", "Timeshare Soluções");
+                    rowIndex = -1;
+                    txtCpf.Text = txtEmail.Text = txtNome.Text = msktxtData.Text = "";
 
                 }
                 catch (ValidationException vex)
@@ -55,6 +57,8 @@ namespace WindowsFormsApp1
                 {
                     MyUpdate();
                     MessageBox.Show("Cliente Atualizado", "Timeshare Soluções");
+                    rowIndex = -1;
+                    txtCpf.Text = txtEmail.Text = txtNome.Text = msktxtData.Text = "";
                 }
                 catch (ValidationException vex)
                 {
@@ -107,20 +111,16 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void dgv_customers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            rowIndex = e.RowIndex;
-        }
-
         private void dgv_customers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            rowIndex = e.RowIndex;
             if (e.RowIndex >= 0)
             {
                 rowIndex = e.RowIndex;
-                txtNome.Text = dgv_customers.Rows[e.RowIndex].Cells["_nome"].Value.ToString();
-                msktxtData.Text = dgv_customers.Rows[e.RowIndex].Cells["_nascimento"].Value.ToString();
-                txtCpf.Text = dgv_customers.Rows[e.RowIndex].Cells["_cpf"].Value.ToString();
-                txtEmail.Text = dgv_customers.Rows[e.RowIndex].Cells["_email"].Value.ToString();
+                txtNome.Text = dgv_customers.Rows[e.RowIndex].Cells["nome"].Value.ToString();
+                msktxtData.Text = dgv_customers.Rows[e.RowIndex].Cells["nascimento"].Value.ToString();
+                txtCpf.Text = dgv_customers.Rows[e.RowIndex].Cells["cpf"].Value.ToString();
+                txtEmail.Text = dgv_customers.Rows[e.RowIndex].Cells["email"].Value.ToString();
             }
         }
 
@@ -134,6 +134,9 @@ namespace WindowsFormsApp1
             try
             {
                 MyDelete();
+                rowIndex = -1;
+                MessageBox.Show("Cliente Deletado!", "Timeshare Soluções");
+                txtCpf.Text = txtEmail.Text = txtNome.Text = msktxtData.Text = "";
             }
             catch (Exception ex)
             {
@@ -146,7 +149,7 @@ namespace WindowsFormsApp1
             try
             {
                 var customer = ReadFrm();
-                uint.TryParse(dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString(),  out uint id);
+                uint.TryParse(dgv_customers.Rows[rowIndex].Cells["id"].Value.ToString(),  out uint id);
                 daoCustomer.Update(customer.InformacoesTratadasParaBancoDeDados(), id);
                 AtualizarGridEmBackground();
             }
@@ -164,7 +167,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var id = dgv_customers.Rows[rowIndex].Cells["_id"].Value.ToString();
+                var id = dgv_customers.Rows[rowIndex].Cells["id"].Value.ToString();
                 daoCustomer.Delete(Convert.ToUInt32(id));
                 AtualizarGridEmBackground();
 

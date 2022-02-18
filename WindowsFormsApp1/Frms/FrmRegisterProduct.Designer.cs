@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.lblQuantity);
             this.panel1.Location = new System.Drawing.Point(10, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1087, 299);
+            this.panel1.Size = new System.Drawing.Size(870, 299);
             this.panel1.TabIndex = 10;
             // 
             // btnDelete
@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelete.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDelete.Location = new System.Drawing.Point(215, 249);
+            this.btnDelete.Location = new System.Drawing.Point(231, 253);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(120, 27);
             this.btnDelete.TabIndex = 25;
@@ -80,8 +80,11 @@ namespace WindowsFormsApp1
             // 
             // dgv_products
             // 
-            this.dgv_products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_products.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_products.AllowUserToAddRows = false;
+            this.dgv_products.AllowUserToDeleteRows = false;
+            this.dgv_products.AllowUserToOrderColumns = true;
+            this.dgv_products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_products.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_products.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_products.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -102,22 +105,23 @@ namespace WindowsFormsApp1
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_products.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_products.GridColor = System.Drawing.SystemColors.ScrollBar;
-            this.dgv_products.Location = new System.Drawing.Point(343, 22);
+            this.dgv_products.Location = new System.Drawing.Point(367, 26);
             this.dgv_products.MultiSelect = false;
             this.dgv_products.Name = "dgv_products";
             this.dgv_products.ReadOnly = true;
             this.dgv_products.RowHeadersVisible = false;
             this.dgv_products.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_products.Size = new System.Drawing.Size(737, 254);
+            this.dgv_products.Size = new System.Drawing.Size(482, 254);
             this.dgv_products.TabIndex = 24;
             this.dgv_products.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_products_CellClick);
             this.dgv_products.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_products_CellDoubleClick);
+            this.dgv_products.MouseLeave += new System.EventHandler(this.dgv_products_MouseLeave);
             // 
             // txtName
             // 
             this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtName.Location = new System.Drawing.Point(163, 25);
+            this.txtName.Location = new System.Drawing.Point(179, 29);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(172, 24);
             this.txtName.TabIndex = 2;
@@ -126,7 +130,7 @@ namespace WindowsFormsApp1
             // 
             this.txtQuantity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtQuantity.Location = new System.Drawing.Point(163, 140);
+            this.txtQuantity.Location = new System.Drawing.Point(179, 144);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(71, 24);
             this.txtQuantity.TabIndex = 4;
@@ -135,7 +139,7 @@ namespace WindowsFormsApp1
             // 
             this.txtMoeda.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMoeda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtMoeda.Location = new System.Drawing.Point(163, 85);
+            this.txtMoeda.Location = new System.Drawing.Point(179, 89);
             this.txtMoeda.Name = "txtMoeda";
             this.txtMoeda.Size = new System.Drawing.Size(71, 24);
             this.txtMoeda.TabIndex = 3;
@@ -145,7 +149,7 @@ namespace WindowsFormsApp1
             this.lblName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.lblName.Location = new System.Drawing.Point(3, 25);
+            this.lblName.Location = new System.Drawing.Point(19, 29);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(113, 24);
             this.lblName.TabIndex = 2;
@@ -156,7 +160,7 @@ namespace WindowsFormsApp1
             this.lblPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPrice.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.lblPrice.Location = new System.Drawing.Point(3, 83);
+            this.lblPrice.Location = new System.Drawing.Point(19, 87);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(113, 26);
             this.lblPrice.TabIndex = 3;
@@ -168,7 +172,7 @@ namespace WindowsFormsApp1
             this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(60)))));
             this.btnSalvar.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnSalvar.Location = new System.Drawing.Point(3, 249);
+            this.btnSalvar.Location = new System.Drawing.Point(19, 253);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(120, 27);
             this.btnSalvar.TabIndex = 5;
@@ -181,7 +185,7 @@ namespace WindowsFormsApp1
             this.lblQuantity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblQuantity.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.lblQuantity.Location = new System.Drawing.Point(3, 141);
+            this.lblQuantity.Location = new System.Drawing.Point(19, 145);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(113, 24);
             this.lblQuantity.TabIndex = 5;
@@ -193,6 +197,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "FrmRegisterProduct";
             this.Size = new System.Drawing.Size(1143, 611);
             this.Load += new System.EventHandler(this.FrmRegisterProduct_Load);

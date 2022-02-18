@@ -76,11 +76,11 @@ namespace WindowsFormsApp1
                         orderItem.ProdutoId = idProduto;
 
                         var itemBanco = new ItemDataBase(quantity, produto.Preco, idProduto, CurrentCustomer.Id);
-                        daoItem.InsertItem(itemBanco);
-                        
+                        daoItem.Insert(itemBanco);
                         myItem = orderItem;
                         orderItems.Add(orderItem);
                         RefreshScreen();
+                        AtualizarGridEmBackground();
                     }
                 }
                 catch (Exception ex)
@@ -125,7 +125,6 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Selecione um cliente para inicar uma compra!", "TimeShare Soluções");
                 }
             }
-
         }
 
         string WriteItemOrderScreen(OrderItems item)
@@ -162,7 +161,7 @@ namespace WindowsFormsApp1
 
                 if (CurrentCustomer != null)
                 {
-                    var order = new Order(CurrentCustomer); // status = in progress
+                    var order = new Order(CurrentCustomer);
                     CurrentOrder = order;
                     lblCustomer.Visible = true;
                     pictureBox1.Visible = true;

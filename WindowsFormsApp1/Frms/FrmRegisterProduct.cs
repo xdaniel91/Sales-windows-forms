@@ -36,6 +36,9 @@ namespace WindowsFormsApp1
                 var id = Convert.ToUInt32(dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString());
                 daoProduto.Delete(id);
                 AtualizarGridEmBackground();
+                MessageBox.Show("Produto deletado!", "Timeshare Soluções");
+                txtMoeda.Text = txtName.Text = txtQuantity.Text = "";
+
             }
             catch (ValidationException vex)
             {
@@ -67,7 +70,7 @@ namespace WindowsFormsApp1
 
         private void FrmRegisterProduct_Load(object sender, EventArgs e)
         {
-            AtualizarGridEmBackground();
+            AtualizarGridEmBackground();       
         }
 
         void AtualizarGridEmBackground()
@@ -94,6 +97,7 @@ namespace WindowsFormsApp1
                     daoProduto.Insert(produto);
                     AtualizarGridEmBackground();
                     MessageBox.Show("Produto incluido com sucesso", "Timeshare Soluções");
+                    txtMoeda.Text = txtName.Text = txtQuantity.Text = "";
                 }
                 catch (ValidationException vex)
                 {
@@ -110,11 +114,13 @@ namespace WindowsFormsApp1
                 try
                 {    
                     var id = Convert.ToUInt32(dgv_products.Rows[rowIndex].Cells["_id"].Value.ToString());
+                    
                     var produto = ReadFrm();
                     var infos = produto.InformacoesTratadasParaBancoDeDados();
                     daoProduto.Update(infos, id);
                     AtualizarGridEmBackground();
                     MessageBox.Show("Produto atualizado!", "TimeshareSoluções");
+                    txtMoeda.Text = txtName.Text = txtQuantity.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -125,6 +131,7 @@ namespace WindowsFormsApp1
 
         private void dgv_products_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            rowIndex = e.RowIndex;
             if (e.RowIndex >= 0)
             {
                 rowIndex = e.RowIndex;
@@ -136,7 +143,12 @@ namespace WindowsFormsApp1
 
         private void dgv_products_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            rowIndex = e.RowIndex;
+            
+        }
+
+        private void dgv_products_MouseLeave(object sender, EventArgs e)
+        {
+            
         }
     }
 }

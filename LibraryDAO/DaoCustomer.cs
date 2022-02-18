@@ -15,6 +15,7 @@ namespace LibraryDAO
     {
         static void Main() { }
     }
+
     public  class DaoCustomer : DaoBase, IDaoEntities
     {
         static Database postgre = new Database();
@@ -34,15 +35,69 @@ namespace LibraryDAO
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
+
+        public void SelectItemsxClientes()
+        {
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = @"select cl_nome as Cliente, oi_quantidade as Quantidade, pd_nome as Produto, oi_valortotal as Total, to_char(oi_datahora, 'DD/MM/YYYY') as Data from clientes		
+                            join compra_item on oi_clienteId = clientes.cl_id
+                            join produtos on produtos.pd_id = compra_item.oi_produtoId";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            postgre.dt = new DataTable();
+            postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
+            postgre.connection.Close();
+        }
+
+        public void SelectItemsxClientesByData(string data)
+        {
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $@"select cl_nome as Cliente, oi_quantidade as Quantidade, pd_nome as Produto, oi_valortotal as Total, to_char(oi_datahora, 'DD/MM/YYYY') as Data from clientes		
+                            join compra_item on oi_clienteId = clientes.cl_id
+                            join produtos on produtos.pd_id = compra_item.oi_produtoId
+                            where Data = {data}";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            postgre.dt = new DataTable();
+            postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
+            postgre.connection.Close();
+        }
+        public void SelectItemsxClientesByNome(string nome)
+        {
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $@"select cl_nome as Cliente, oi_quantidade as Quantidade, pd_nome as Produto, oi_valortotal as Total, to_char(oi_datahora, 'DD/MM/YYYY') as Data from clientes		
+                            join compra_item on oi_clienteId = clientes.cl_id
+                            join produtos on produtos.pd_id = compra_item.oi_produtoId
+                            where Cliente = {nome}";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            postgre.dt = new DataTable();
+            postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
+            postgre.connection.Close();
+        }
+        public void SelectItemsxClientesBtId(uint id)
+        {
+            postgre.connection = new NpgsqlConnection(postgre.connectString);
+            postgre.connection.Open();
+            postgre.sql = $@"select cl_nome as Cliente, oi_quantidade as Quantidade, pd_nome as Produto, oi_valortotal as Total, to_char(oi_datahora, 'DD/MM/YYYY') as Data from clientes		
+                            join compra_item on oi_clienteId = clientes.cl_id
+                            join produtos on produtos.pd_id = compra_item.oi_produtoId
+                            where cl_id = {id}";
+            postgre.sqlCommand = new NpgsqlCommand(postgre.sql, postgre.connection);
+            postgre.dt = new DataTable();
+            postgre.dt.Load(postgre.sqlCommand.ExecuteReader());
+            postgre.connection.Close();
+        }
+
         public void AtualizarGrid(DataGridView dgv)
         {
             dgv.DataSource = null;
             dgv.DataSource = postgre.dt;
         }
+
         public void Select()
         {
             postgre.connection = new NpgsqlConnection(postgre.connectString);
@@ -58,7 +113,6 @@ namespace LibraryDAO
         {
             try
             {
-                Database postgre = new Database();
                 postgre.connection = new NpgsqlConnection(postgre.connectString);
                 postgre.connection.Open();
                 postgre.sql = $@"select * from clientes_delete({id})";
@@ -69,7 +123,6 @@ namespace LibraryDAO
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
